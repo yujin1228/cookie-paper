@@ -5,11 +5,13 @@ import banner from "../../assets/img/banner.png"
 import { Link } from 'react-router-dom';
 
 export default function FormHeader() {
-  return (
-    <>
-      <h1>여기는 Header.js 입니다!</h1>
-    </>
-  );
+    return (
+      <Header>
+        <Container>
+          <HomeLink to="/"/>
+        </Container>
+      </Header>
+    );
 }
 
 const Header = styled.header`
@@ -31,5 +33,7 @@ const Container = styled.div`
 `;
 
 const HomeLink = styled(Link)`
-
+    width: 120px;
+    height: 40px;
+    background: url(${logo}) no-repeat 100%;
 `;
