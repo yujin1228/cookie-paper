@@ -48,3 +48,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+#root {
+	height: 100vh;
+	background-color: #FFFCF9;
+}
