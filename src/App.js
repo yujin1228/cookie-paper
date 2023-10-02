@@ -7,8 +7,9 @@ import Join from './components/form/Join';
 import SelectOven from './components/form/SelectOven';
 import FindId from './components/form/FindId';
 import FindPw from './components/form/FindPw';
-import FloatingButton from './components/FloatingButton';
+import FloatingButton from './components/share/FloatingButton';
 import GlobalStyle from './GlobalStyle';
+import OvenList from './components/oven-list/OvenList';
 
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         {/* 플로팅버튼이 필요한 주요페이지 컴포넌트 라우팅 */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<Main />} />
+          <Route path="/ovenlist" element={<OvenList />} />
           
         </Route>
         {/* Header가 필요한 form 컴포넌트 라우팅 */}
