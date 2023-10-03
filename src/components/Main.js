@@ -25,12 +25,12 @@ export default function Main() {
   );
 }
 
-const Body = styled.div`
+export const Body = styled.div`
     height: 100vh;
     background-image:  linear-gradient(to right, #F9D695, #FCDEA4);
 `;
 
-const Bg = styled.div`
+export const Bg = styled.div`
     max-width: 1440px;
     height: 100vh;
     margin: 0 auto;

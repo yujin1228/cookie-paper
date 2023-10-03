@@ -4,7 +4,7 @@ import CheckEmail from './CheckEmail';
 
 export default function FindPw() {
   return (
-    <FormContainer>
+    <FormContainer width="285px">
       <FormTitle>비밀번호 찾기</FormTitle>
       <Form>
         <FormGroup>

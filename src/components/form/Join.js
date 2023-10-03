@@ -5,7 +5,7 @@ import CheckEmail from './CheckEmail';
 
 export default function Join() {
     return (
-    <FormContainer>
+    <FormContainer width="285px">
         <FormTitle>회원가입</FormTitle>
         <Form>
             <FormGroup>

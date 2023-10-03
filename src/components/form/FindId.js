@@ -3,7 +3,7 @@ import { FormContainer, FormTitle, Form, LinkBox, BasicLink, FormGroup, Label, I
 
 export default function FindId() {
   return(
-    <FormContainer>
+    <FormContainer width="285px">
       <FormTitle>아이디 찾기</FormTitle>
       <Form>
         <FormGroup>

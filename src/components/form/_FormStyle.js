@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-    max-width: 285px;
+    max-width: ${(props) => props.width};
     font-family: var(--main-font);
     margin: 48px auto;
 `;
@@ -11,6 +11,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-top: 32px;
 `;
 
 export const FormTitle = styled.h1`
@@ -19,7 +20,6 @@ export const FormTitle = styled.h1`
     font-weight: 700;
     text-align: center;
     line-height: 32px;
-    margin-bottom: 32px;
 `;
 
 export const FormGroup = styled.div`

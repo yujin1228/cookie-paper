@@ -8,7 +8,7 @@ export default function Login() {
   const [userPw,setUserPw] = useState('');
 
   return (
-  <Container>
+  <FormContainer width="284px">
     <FormTitle>로그인</FormTitle>
     <Form>
       <Input id="userId" placeholder="ID" type="text"
@@ -22,13 +22,9 @@ export default function Login() {
       <BasicLink to="/find/userid">아이디 찾기</BasicLink>
       <BasicLink to="/find/userpw">비밀번호 찾기</BasicLink>
     </LinkBox>
-  </Container>
+  </FormContainer>
   );
 }
-
-const Container = styled(FormContainer)`
-    max-width: 284px;
-`;
 
 const Input = styled.input`
     width: 100%;
