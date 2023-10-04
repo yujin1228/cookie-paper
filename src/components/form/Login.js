@@ -11,10 +11,8 @@ export default function Login() {
   <FormContainer width="284px">
     <FormTitle>로그인</FormTitle>
     <Form>
-      <Input id="userId" placeholder="ID" type="text"
-      />
-      <Input id="userPw" placeholder="Password" type="password"
-      />
+      <Input id="userId" placeholder="ID" type="text" required />
+      <Input id="userPw" placeholder="Password" type="password" required />
       <Button>로그인</Button>
     </Form>
     <LinkButton to="/join/info">회원가입</LinkButton>

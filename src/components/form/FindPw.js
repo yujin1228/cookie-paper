@@ -10,13 +10,15 @@ export default function FindPw() {
         <FormGroup>
             <Label for="userId">아이디</Label>
             <Input id="userId" placeholder="아이디를 입력해주세요" 
-            type="text"/>
+            type="text" required />
         </FormGroup>
         <CheckEmail />
         <FormGroup>
             <Label for="userPw">새 비밀번호 입력</Label>
             <Input id="userPw" placeholder="영문, 숫자, 특수문자 포함 8자-30자" 
-            type="password" maxLength={30} disabled/>
+            type="password" minLength={8} maxLength={30} 
+            pattern="^[a-zA-Z]+[0-9]+[!@#$%^&]+$"
+            required disabled/>
         </FormGroup>
         <Button disabled>비밀번호 재설정</Button>
       </Form>

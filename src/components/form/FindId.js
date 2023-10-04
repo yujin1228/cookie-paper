@@ -9,7 +9,7 @@ export default function FindId() {
         <FormGroup>
             <Label for="userEmail">이메일</Label>
             <Input id="userEmail" placeholder="이메일을 입력해주세요" 
-            type="text"/>
+            type="email" required/>
         </FormGroup>
         <Button disabled>이메일로 아이디 전송</Button>
       </Form>
