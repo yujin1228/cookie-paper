@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimmed } from './Dimmed';
+import { Dimmed } from '../share/Dimmed';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 

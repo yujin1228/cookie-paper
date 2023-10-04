@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import FormHeader from './components/form/FormHeader';
-import Main from './components/Main';
-import Login from './components/form/Login';
-import Join from './components/form/Join';
-import SelectOven from './components/form/SelectOven';
-import FindId from './components/form/FindId';
-import FindPw from './components/form/FindPw';
+import Main from './page/Main';
+import Login from './page/form/Login';
+import Join from './page/form/Join';
+import SelectOven from './page/form/SelectOven';
+import FindId from './page/form/FindId';
+import FindPw from './page/form/FindPw';
 import FloatingButton from './components/share/FloatingButton';
-import GlobalStyle from './GlobalStyle';
-import OvenList from './components/oven-list/OvenList';
-
+import GlobalStyle from './style/GlobalStyle';
+import OvenList from './page/OvenList';
+import UserOven from './page/UserOven';
 
 export default function App() {
   return (
@@ -22,7 +22,7 @@ export default function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Main />} />
           <Route path="/ovenlist" element={<OvenList />} />
-          
+          <Route path="/oven/:id" element={<UserOven />} />
         </Route>
         {/* Header가 필요한 form 컴포넌트 라우팅 */}
         <Route element={<FormLayout />}>

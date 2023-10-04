@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import cookieRunRegular from "./assets/font/CookieRun-Regular.woff";
-import cookieRunBold from "./assets/font/CookieRun-Bold.woff";
-import cookieRunBlack from "./assets/font/CookieRun-Black.woff";
-import YeongdeokSea from "./assets/font/Yeongdeok-Sea.woff";
-import digital from "./assets/font/DigitalNumbers-Regular.woff";
+import cookieRunRegular from "../assets/font/CookieRun-Regular.woff";
+import cookieRunBold from "../assets/font/CookieRun-Bold.woff";
+import cookieRunBlack from "../assets/font/CookieRun-Black.woff";
+import YeongdeokSea from "../assets/font/Yeongdeok-Sea.woff";
+import digital from "../assets/font/DigitalNumbers-Regular.woff";
 
 const GlobalStyle = createGlobalStyle`
     /*======== Import Fonts ========*/

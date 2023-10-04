@@ -1,25 +1,36 @@
 import { styled } from "styled-components";
 import { ovens } from "../share/ImgImport";
+import { useNavigate } from "react-router-dom";
 
 export default function OvenItem(props) {
- return(
-    <Oven mine={props.mine}>
-        <Title><Name>닉네임</Name>님의 오븐</Title>
-        <OvenId>@cookie_maker</OvenId>
-        <OvenImg src={ovens[1]} />
+    //props = { id: 아이디문자열, name: 닉네임문자열, oven: 오븐이미지넘버, mine: true or false}
+    let route = `../oven/${props.id}`;
+    const navigate = useNavigate();
+
+    const onClick = () => {
+        navigate(route);
+    }
+
+    return(
+    <Oven onClick={onClick} $mine={props.mine}>
+        <Title><Name>{props.name}</Name>님의 오븐</Title>
+        <OvenId>@{props.id}</OvenId>
+        <OvenImg src={ovens[props.oven]} />
     </Oven>
- );
+    );
 }
+
 
 const Oven = styled.div`
     position: relative;
     font-family: var(--main-font);
     width: fit-content;
     height: fit-content;
+    cursor: pointer;
 
     &::after {
         content: "내 오븐";
-        display: ${(props) => props.mine ? 'block' : 'none'};;
+        display: ${(props) => props.$mine ? 'block' : 'none'};;
         position: absolute;
         bottom: 0;
         right: 0;

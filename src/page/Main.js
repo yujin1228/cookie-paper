@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import backgroundImg from '../assets/img/back_main.png';
 import logo from '../assets/img/cookiepaper-logo.png';
-import { Button } from './share/Button';
+import { Button } from '../components/share/Button';
 
 
 export default function Main() {
@@ -37,7 +37,8 @@ export const Bg = styled.div`
     background: url(${backgroundImg}) no-repeat;
     background-size: cover;
     background-position: top;
-`
+`;
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -56,7 +57,7 @@ const Logo = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 66px;
-`
+`;
 
 const ButtonBox = styled.div`
   width: 285px;

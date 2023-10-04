@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FormContainer, Form, FormTitle, Label, FormGroup, InputBox, Input, InputButton, Button } from './_FormStyle';
-import CheckEmail from './CheckEmail';
+import { FormContainer, Form, FormTitle, Label, FormGroup, InputBox, Input, InputButton, Button } from '../../components/form/FormStyle';
+import CheckEmail from '../../components/form/CheckEmail';
 
 export default function Join() {
+    const [userId, setUserId] = useState(''); //사용자 ID
+    const [userPw, setUserPw] = useState(''); //사용자 PW
+    const [userName, setUserName] = useState(''); //사용자 닉네임
+    const [buttonActive, setButtonActive] = useState(false); //회원가입 활성화 여부
+
+    console.log("버튼액티브: "+ buttonActive);
+
+    const duplicateCheckId = () => {
+        //아이디 중복 체크 요청 -> 중복 여부 response받음
+    }
+
+    const activeButton = (active) => {
+        setButtonActive(active);
+    }
+    
+    
     return (
     <FormContainer width="285px">
         <FormTitle>회원가입</FormTitle>
         <Form>
             {/* 회원가입 - 아이디 입력창 */}
             <FormGroup>
-                <Label for="userId">아이디</Label>
+                <Label htmlFor="userId">아이디</Label>
                 <InputBox>
                 <Input id="userId" 
                 placeholder="영문/숫자 조합 5-20자"
@@ -23,7 +39,7 @@ export default function Join() {
             </FormGroup>
             {/* 회원가입 - 비밀번호 입력창 */}
             <FormGroup>
-                <Label for="userPw">비밀번호</Label>
+                <Label htmlFor="userPw">비밀번호</Label>
                 <Input id="userPw" 
                 placeholder="영문, 숫자, 특수문자 포함 8자-30자" 
                 title="형식 : 영문, 숫자, 특수문자 포함 8자-30자" 
@@ -33,7 +49,7 @@ export default function Join() {
             </FormGroup>
             {/* 회원가입 - 닉네임 입력창 */}
             <FormGroup>
-                <Label for="userName">닉네임</Label>
+                <Label htmlFor="userName">닉네임</Label>
                 <NameGuide>실명 사용을 권장드려요 :&#41;</NameGuide>
                 <Input id="userName" 
                 placeholder="영어, 한글 최대 8글자"
@@ -42,8 +58,8 @@ export default function Join() {
                 pattern="^[가-힣a-zA-Z]+{1,8}$"
                 required/>
             </FormGroup>
-            <CheckEmail />
-            <Button marginTop="28px">회원가입</Button>
+            <CheckEmail page="join" activeButton={activeButton}/>
+            <Button $top="28px" $buttonActive={buttonActive}>회원가입</Button>
         </Form>
     </FormContainer>
     );

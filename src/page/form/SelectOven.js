@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, FormContainer, FormTitle } from './_FormStyle';
 import { styled } from 'styled-components';
+import { Button, FormContainer, FormTitle } from '../../components/form/FormStyle';
 import unchecked from '../../assets/img/ico_unchecked.png';
 import checked from '../../assets/img/ico_checked.png';
-import { ovens } from '../share/ImgImport';
+import { ovens } from '../../components/share/ImgImport';
 
 //회원가입 완료 후 넘어오는 페이지!
 export default function SelectOven() {

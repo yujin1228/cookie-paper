@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
-import { Body, Bg } from "../Main";
-import { Dimmed } from "../share/Dimmed";
-import OvenHeader from "../share/OvenHeader";
-import title from "../../assets/img/oven-list-title.png"
-import OvenItem from "./OvenItem";
+import { Body, Bg } from "./Main";
+import { Dimmed } from "../components/share/Dimmed";
+import OvenHeader from "../components/share/OvenHeader";
+import title from "../assets/img/oven-list-title.png"
+import OvenItem from "../components/ovenList/OvenItem";
 
 export default function OvenList() {
     //로그인한 상태일때 내오븐 제일 앞에 정렬, 인덱스0인 오븐에 mine=true 값 부여
@@ -15,16 +15,9 @@ export default function OvenList() {
                     <Container>
                         <Title />
                         <OvenBox>
-                            <OvenItem mine="true"/>
-                            <OvenItem />
-                            <OvenItem />
-                            <OvenItem />
-                            <OvenItem />
-                            <OvenItem />
-                            <OvenItem />
-                            <OvenItem />
-                            <OvenItem />
-                            <OvenItem />                            
+                            <OvenItem id="cookie1" name="쿠키메이커1" oven={1} mine="true"/>
+                            <OvenItem id="cookie2" name="쿠키메이커2" oven={3} mine="false"/>
+                                                        
                         </OvenBox>
 
                         <PageContainer>
@@ -65,6 +58,8 @@ const Title = styled.div`
 `;
 
 const OvenBox = styled.div`
+    width: 100%;
+    height: 558px;
     display: flex;
     flex-wrap: wrap;
     gap: 24px 53px;

@@ -1,22 +1,38 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FormContainer, Form, FormTitle, Button, LinkBox, BasicLink } from './_FormStyle'
+import { FormContainer, Form, FormTitle, Button, LinkBox, BasicLink } from '../../components/form/FormStyle';
 
 export default function Login() {
   const [userId,setUserId] = useState('');
   const [userPw,setUserPw] = useState('');
 
+  const onChangeId = (e) => {
+    setUserId(e.target.value);
+    console.log("id입력");
+  }
+
+  const onChangePw = (e) => {
+    setUserPw(e.target.value);
+    console.log("pw입력");
+  }
+
+  const onClickLogin = () => {
+    //로그인api
+  }
+
   return (
   <FormContainer width="284px">
     <FormTitle>로그인</FormTitle>
     <Form>
-      <Input id="userId" placeholder="ID" type="text" required />
-      <Input id="userPw" placeholder="Password" type="password" required />
+      <Input id="userId" onChange={onChangeId}
+      placeholder="ID" type="text" required />
+      <Input id="userPw" onChange={onChangePw}
+      placeholder="Password" type="password" required />
       <Button>로그인</Button>
     </Form>
     <LinkButton to="/join/info">회원가입</LinkButton>
-    <LinkBox marginTop="144px">
+    <LinkBox $top="144px">
       <BasicLink to="/find/userid">아이디 찾기</BasicLink>
       <BasicLink to="/find/userpw">비밀번호 찾기</BasicLink>
     </LinkBox>

@@ -67,8 +67,8 @@ export const InputButton = styled.button`
     font-size: 12px;
     line-height: 16px;
 
-    background-color: ${props => props.disabled? 'var(--gray-400);': 'var(--orange-700);'};
-    color: ${props => props.disabled? 'var(--gray-700);': 'var(--black);'};
+    background-color: ${props => props.disabled? 'var(--gray-400);' : 'var(--orange-700);'};
+    color: ${props => props.disabled? 'var(--gray-700);' : 'var(--black);'};
 `;
 
 export const FormMessage = styled.p`
@@ -82,17 +82,17 @@ export const Button = styled.button`
     font-size: 20px;
     line-height: 27px;
     font-family: var(--main-font);
-    margin-top: ${(props) => props.marginTop};
+    margin-top: ${(props) => props.$top};
 
-    background-color: ${props => props.disabled? 'var(--gray-700);': 'var(--orange-700);'};
-    color: ${props => props.disabled? 'var(--gray-400);': 'var(--black);'};
+    background-color: ${props => props.$buttonActive ? 'var(--orange-700);' : 'var(--gray-700);'};
+    color: ${props => props.$buttonActive ? 'var(--black);' : 'var(--gray-400);'};
 `;
 
 export const LinkBox = styled.div`
     padding: 0 13px;
     display: flex;
     justify-content: space-between;
-    margin-top: ${(props) => props.marginTop};
+    margin-top: ${(props) => props.$top};
 `;
 
 export const BasicLink = styled(Link)`

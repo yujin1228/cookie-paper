@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormContainer, FormTitle, Form, LinkBox, BasicLink, FormGroup, Label, Input, Button} from './_FormStyle';
+import { FormContainer, FormTitle, Form, LinkBox, BasicLink, FormGroup, Label, Input, Button} from '../../components/form/FormStyle';
 
 export default function FindId() {
   return(
@@ -7,13 +7,13 @@ export default function FindId() {
       <FormTitle>아이디 찾기</FormTitle>
       <Form>
         <FormGroup>
-            <Label for="userEmail">이메일</Label>
+            <Label htmlFor="userEmail">이메일</Label>
             <Input id="userEmail" placeholder="이메일을 입력해주세요" 
             type="email" required/>
         </FormGroup>
-        <Button disabled>이메일로 아이디 전송</Button>
+        <Button>이메일로 아이디 전송</Button>
       </Form>
-      <LinkBox marginTop="160px">
+      <LinkBox $top="160px">
         <BasicLink to="/login">로그인 하러가기</BasicLink>
         <BasicLink to="/join/info">회원가입</BasicLink>
       </LinkBox>
