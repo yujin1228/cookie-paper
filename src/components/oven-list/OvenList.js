@@ -6,6 +6,7 @@ import title from "../../assets/img/oven-list-title.png"
 import OvenItem from "./OvenItem";
 
 export default function OvenList() {
+    //로그인한 상태일때 내오븐 제일 앞에 정렬, 인덱스0인 오븐에 mine=true 값 부여
     return(
         <Body>
             <Bg>
@@ -13,17 +14,24 @@ export default function OvenList() {
                     <OvenHeader />
                     <Container>
                         <Title />
-                        <OvenItem mine="true"/>
-                        <OvenItem />
-                        <OvenItem />
-                        <OvenItem />
-                        <OvenItem />
-                        <OvenItem />
-                        <OvenItem />
-                        <OvenItem />
-                        <OvenItem />
-                        <OvenItem />
+                        <OvenBox>
+                            <OvenItem mine="true"/>
+                            <OvenItem />
+                            <OvenItem />
+                            <OvenItem />
+                            <OvenItem />
+                            <OvenItem />
+                            <OvenItem />
+                            <OvenItem />
+                            <OvenItem />
+                            <OvenItem />                            
+                        </OvenBox>
 
+                        <PageContainer>
+                            <PageButton>&#60;&#60;</PageButton> 
+                            <span>1/4</span>
+                            <PageButton>&#62;&#62;</PageButton>
+                        </PageContainer>
                     </Container>
                 </Dimmed>
             </Bg>
@@ -34,9 +42,6 @@ export default function OvenList() {
 const Container = styled.div`
     width: 1200px;
     height: 673px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px 53px;
     margin: 21px auto;
     background-color: var(--orange-300);
     border-radius: 20px;
@@ -59,9 +64,28 @@ const Title = styled.div`
     transform: translate(-50%,-50%);
 `;
 
+const OvenBox = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 53px;
+    margin-bottom: 16px;
+`;
+
 const PageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 85px;
     height: 35px;
     border-radius: 24px;
     background-color: var(--gray-700);
+    margin: 0 auto;
+    font-size: 14px;
+    color: var(--gray-300);
 `
+
+const PageButton = styled.button`
+    font-family: var(--main-font);
+    color: var(--gray-300);
+`;
