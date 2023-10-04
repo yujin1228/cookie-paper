@@ -43,3 +43,15 @@ export const cookies = {
     8 : cookie8,
     9 : cookie9
 };
+
+export const doughs = {
+    1 : dough1,
+    2 : dough2,
+    3 : dough3,
+    4 : dough4,
+    5 : dough5,
+    6 : dough6,
+    7 : dough7,
+    8 : dough8,
+    9 : dough9
+};
