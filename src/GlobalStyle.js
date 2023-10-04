@@ -3,6 +3,7 @@ import cookieRunRegular from "./assets/font/CookieRun-Regular.woff";
 import cookieRunBold from "./assets/font/CookieRun-Bold.woff";
 import cookieRunBlack from "./assets/font/CookieRun-Black.woff";
 import YeongdeokSea from "./assets/font/Yeongdeok-Sea.woff";
+import digital from "./assets/font/DigitalNumbers-Regular.woff";
 
 const GlobalStyle = createGlobalStyle`
     /*======== Import Fonts ========*/
@@ -41,6 +42,13 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
     }
 
+    @font-face {
+        font-family: 'Digital-Numbers';
+        font-weight: 400;
+        font-style: normal;
+        src: url(${digital}) format('woff');
+    }
+    
 
     /*======== Variable CSS ========*/
     :root {
@@ -70,6 +78,7 @@ const GlobalStyle = createGlobalStyle`
         --main-font: 'CookieRun';
         --basic-font: 'Pretendard-Regular';
         --message-font: 'YeongdeokSea';
+        --timer-font: 'Digital-Numbers';
     }
 
 
