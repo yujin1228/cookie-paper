@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import backgroundImg from '../assets/img/back_main.png';
 import logo from '../assets/img/cookiepaper-logo.png';
 import { Button } from '../components/share/Button';
@@ -8,6 +9,10 @@ import { Button } from '../components/share/Button';
 
 export default function Main() {
   return (
+    <>
+    <Helmet>
+      <title>쿠키페이퍼</title>
+    </Helmet>
     <Body>
       <Bg>
         <Container>
@@ -22,6 +27,7 @@ export default function Main() {
         </Container>
       </Bg>
     </Body>
+    </>
   );
 }
 

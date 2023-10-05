@@ -11,11 +11,13 @@ import FloatingButton from './components/share/FloatingButton';
 import GlobalStyle from './style/GlobalStyle';
 import OvenList from './page/OvenList';
 import UserOven from './page/UserOven';
+import { HelmetProvider } from 'react-helmet-async';
 
 export default function App() {
   return (
     <>
     <GlobalStyle />
+    <HelmetProvider>
     <BrowserRouter>
       <Routes>
         {/* 플로팅버튼이 필요한 주요페이지 컴포넌트 라우팅 */}
@@ -34,6 +36,7 @@ export default function App() {
         </Route>
       </Routes>  
     </BrowserRouter>
+    </HelmetProvider>
     </>
 
   );

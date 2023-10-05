@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet-async';
 import { FormContainer, Form, FormTitle, Label, FormGroup, InputBox, Input, InputButton, Button } from '../../components/form/FormStyle';
 import CheckEmail from '../../components/form/CheckEmail';
 
@@ -21,6 +22,10 @@ export default function Join() {
     
     
     return (
+    <>
+    <Helmet>
+      <title>쿠키페이퍼 | 회원가입</title>
+    </Helmet>
     <FormContainer width="285px">
         <FormTitle>회원가입</FormTitle>
         <Form>
@@ -62,6 +67,7 @@ export default function Join() {
             <Button $top="28px" $buttonActive={buttonActive}>회원가입</Button>
         </Form>
     </FormContainer>
+    </>
     );
 }
 

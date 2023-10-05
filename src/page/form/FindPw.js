@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FormContainer, FormTitle, Form, LinkBox, BasicLink, FormGroup, Label, Input, Button} from '../../components/form/FormStyle';
 import CheckEmail from '../../components/form/CheckEmail';
 
 export default function FindPw() {
   return (
+    <>
+    <Helmet>
+      <title>쿠키페이퍼 | 비밀번호 찾기</title>
+    </Helmet>
     <FormContainer width="285px">
       <FormTitle>비밀번호 찾기</FormTitle>
       <Form>
@@ -27,5 +32,6 @@ export default function FindPw() {
         <BasicLink to="/join/info">회원가입</BasicLink>
       </LinkBox>
     </FormContainer>
+    </>
   );
 }

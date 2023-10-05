@@ -1,8 +1,13 @@
 import React from 'react';
 import { FormContainer, FormTitle, Form, LinkBox, BasicLink, FormGroup, Label, Input, Button} from '../../components/form/FormStyle';
+import { Helmet } from 'react-helmet-async';
 
 export default function FindId() {
   return(
+    <>
+    <Helmet>
+      <title>쿠키페이퍼 | 아이디 찾기</title>
+    </Helmet>
     <FormContainer width="285px">
       <FormTitle>아이디 찾기</FormTitle>
       <Form>
@@ -18,5 +23,6 @@ export default function FindId() {
         <BasicLink to="/join/info">회원가입</BasicLink>
       </LinkBox>
     </FormContainer>
+    </>
   );
 }

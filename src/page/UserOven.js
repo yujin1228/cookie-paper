@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import backgroundImg from '../assets/img/back_oven.png';
 import OvenHeader from '../components/share/OvenHeader';
 
@@ -10,8 +11,12 @@ import OvenHeader from '../components/share/OvenHeader';
 
 export default function UserOven() {
     const { id } = useParams();
-
+    let name = "쿠키페이퍼1";
     return (
+    <>
+    <Helmet>
+        <title>쿠키페이퍼 | {name} 님의 오븐</title>
+    </Helmet>
     <Body>
         <Bg>
             <OvenHeader />
@@ -20,8 +25,7 @@ export default function UserOven() {
             </Container>
         </Bg>
     </Body>
-        
-    
+    </>
     );
 }
 

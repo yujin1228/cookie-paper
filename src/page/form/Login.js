@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet-async';
 import { FormContainer, Form, FormTitle, Button, LinkBox, BasicLink } from '../../components/form/FormStyle';
 
 export default function Login() {
@@ -22,6 +23,10 @@ export default function Login() {
   }
 
   return (
+  <>
+  <Helmet>
+      <title>쿠키페이퍼 | 로그인</title>
+  </Helmet>
   <FormContainer width="284px">
     <FormTitle>로그인</FormTitle>
     <Form>
@@ -37,6 +42,7 @@ export default function Login() {
       <BasicLink to="/find/userpw">비밀번호 찾기</BasicLink>
     </LinkBox>
   </FormContainer>
+  </>
   );
 }
 

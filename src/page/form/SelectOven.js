@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { Helmet } from 'react-helmet-async';
 import { Button, FormContainer, FormTitle } from '../../components/form/FormStyle';
 import unchecked from '../../assets/img/ico_unchecked.png';
 import checked from '../../assets/img/ico_checked.png';
@@ -20,6 +21,10 @@ export default function SelectOven() {
 
 
   return (
+    <>
+    <Helmet>
+      <title>쿠키페이퍼 | 오븐선택</title>
+    </Helmet>
     <FormContainer width="936px">
         <FormTitle>내 오븐 선택</FormTitle>
         <Form>
@@ -34,8 +39,8 @@ export default function SelectOven() {
           </SelectBox>
           <CustomButton>내 오븐 만들기</CustomButton>          
         </Form>
-
     </FormContainer>
+    </>
   );
 }
 
