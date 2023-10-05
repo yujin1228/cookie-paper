@@ -64,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
         --orange-100: #FFF6E5;
 
         --gray-900: #4B4B4B;
+        --gray-800: #5B5B5B;
         --gray-700: #737373;
         --gray-400: #C2C2C2;
         --gray-300: #E7E7E7;
