@@ -94,7 +94,7 @@ const GlobalStyle = createGlobalStyle`
         border: 0;
         padding: 0;
     }
-
+    
     *, :after, :before {
         box-sizing:border-box;
     }
@@ -116,6 +116,10 @@ const GlobalStyle = createGlobalStyle`
         color: inherit;
         text-decoration: none;
         outline: none;
+    }
+
+    body {
+        font-family: var(--main-font);
     }
 `;
 

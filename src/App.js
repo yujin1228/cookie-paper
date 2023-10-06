@@ -1,17 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
-import FormHeader from './components/form/FormHeader';
-import Main from './page/Main';
-import Login from './page/form/Login';
-import Join from './page/form/Join';
-import SelectOven from './page/form/SelectOven';
-import FindId from './page/form/FindId';
-import FindPw from './page/form/FindPw';
-import FloatingButton from './components/share/FloatingButton';
-import GlobalStyle from './style/GlobalStyle';
-import OvenList from './page/OvenList';
-import UserOven from './page/UserOven';
 import { HelmetProvider } from 'react-helmet-async';
+import MainPage from './pages/MainPage';
+import LoginPage from './pages/LoginPage';
+import JoinPage from './pages/JoinPage';
+import SelectOvenPage from './pages/SelectOvenPage';
+import FindIdPage from './pages/FindIdPage';
+import FindPwPage from './pages/FindPwPage';
+import OvenListPage from './pages/OvenListPage';
+import UserOvenPage from './pages/UserOvenPage';
+import FormHeader from './components/share/FormHeader';
+import FloatingButton from './components/share/FloatingButton';
+import GlobalStyle from './style/_GlobalStyle';
 
 export default function App() {
   return (
@@ -22,17 +22,17 @@ export default function App() {
       <Routes>
         {/* 플로팅버튼이 필요한 주요페이지 컴포넌트 라우팅 */}
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Main />} />
-          <Route path="/ovenlist" element={<OvenList />} />
-          <Route path="/oven/:id" element={<UserOven />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/ovenlist" element={<OvenListPage />} />
+          <Route path="/oven/:id" element={<UserOvenPage />} />
         </Route>
         {/* Header가 필요한 form 컴포넌트 라우팅 */}
         <Route element={<FormLayout />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/join/info" element={<Join />} />
-          <Route path="/join/ovenselect" element={<SelectOven />} />
-          <Route path="/find/userid" element={<FindId />} />
-          <Route path="/find/userpw" element={<FindPw />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/join/info" element={<JoinPage />} />
+          <Route path="/join/ovenselect" element={<SelectOvenPage />} />
+          <Route path="/find/userid" element={<FindIdPage />} />
+          <Route path="/find/userpw" element={<FindPwPage />} />
         </Route>
       </Routes>  
     </BrowserRouter>

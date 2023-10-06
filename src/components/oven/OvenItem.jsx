@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { ovens } from "../share/ImgImport";
+import { ovens } from "../../style/_ImgImport";
 import { useNavigate } from "react-router-dom";
 
 export default function OvenItem(props) {
@@ -67,4 +67,5 @@ const OvenImg = styled.img`
     object-position: center;
     margin: 0 10px 4px 10px;
     vertical-align: bottom;
+    
 `;

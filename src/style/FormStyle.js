@@ -22,9 +22,7 @@ export const FormTitle = styled.h1`
     line-height: 32px;
 `;
 
-export const FormGroup = styled.div`
-    
-`;
+export const FormGroup = styled.div``;
 
 export const InputBox = styled.div`
     position: relative;
@@ -101,4 +99,22 @@ export const BasicLink = styled(Link)`
     line-height: 19px;
     text-align: center;
     cursor: pointer;
+`;
+
+export const NameGuide = styled.span`
+display: inline-block;
+font-size: 12px;
+transform: translateY(-1px);
+color: var(--orange-700);
+margin-left: 8px;
+`;
+
+export const CodeTimer = styled.span`
+    font-family: var(--basic-font);
+    font-size: 12px;
+    color: var(--black);
+
+    display: inline-block;
+    margin-left: 8px;
+    transform: translateY(-1px);
 `;

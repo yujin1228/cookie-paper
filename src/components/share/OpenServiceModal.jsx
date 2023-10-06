@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 //다시 보지 않기 -> 영구히 저장(로컬스토리지)
 export default function OpenMessage() {
-  return (
+    return (
     <>
         <Dimmed></Dimmed>
         <Container>
@@ -14,7 +14,7 @@ export default function OpenMessage() {
             <CloseButton></CloseButton>
         </Container>
     </>
-  );
+    );
 }
 
 const Container = styled.div`

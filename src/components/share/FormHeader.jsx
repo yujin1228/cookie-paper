@@ -1,24 +1,29 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import logo from "../../assets/img/cookiepaper-logo.svg"
 import { Link } from 'react-router-dom';
+import logo from "../../assets/img/cookiepaper-logo.svg"
+import banner from "../../assets/img/banner.png"
 
-export default function OvenHeader() {
+export default function FormHeader() {
     return (
-      <Header>
+    <Header>
         <Container>
-          <HomeLink to="/"/>
+            <HomeLink to="/"/>
         </Container>
-      </Header>
+    </Header>
     );
 }
 
 const Header = styled.header`
+    background-color: #FBE6BE;
     width: 100%;
     height: 84px;
 `;
 
 const Container = styled.div`
+    background-image: url(${banner});
+    background-repeat: no-repeat;
+    background-size: cover;
     max-width: 1440px;
     height: 100%;
     margin: 0 auto;
