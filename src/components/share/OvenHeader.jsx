@@ -16,6 +16,8 @@ export default function OvenHeader() {
 const Header = styled.header`
     width: 100%;
     height: 84px;
+    position: fixed;
+    top: 0;
 `;
 
 const Container = styled.div`

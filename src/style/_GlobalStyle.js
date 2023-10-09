@@ -102,6 +102,7 @@ const GlobalStyle = createGlobalStyle`
     button {
         border: none;
         background-color: transparent;
+        font-family: var(--main-font);
         cursor: pointer;
     }
 

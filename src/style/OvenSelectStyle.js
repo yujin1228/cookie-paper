@@ -1,7 +1,5 @@
 import { styled } from "styled-components";
 import { Button } from './FormStyle';
-import unchecked from '../assets/img/ico_unchecked.png';
-import checked from '../assets/img/ico_checked.png';
 
 export const H2 = styled.h2`
     text-align: center;
@@ -27,20 +25,14 @@ export const SelectBox = styled.div`
     gap: 44px 129px;
 `;
 
-export const Input = styled.input`
-    display: none;
-`;
-
 export const Img = styled.img`
     width: 175px; 
+    -webkit-user-drag: none;
 `;
 
 export const SelectItem = styled.div`
     position: relative;
-
-    &:hover {
-        cursor: pointer;
-    }
+    cursor: pointer;
 
     Input:checked + &::after {
         content: "내 오븐";
@@ -65,30 +57,6 @@ export const SelectItem = styled.div`
 export const Label = styled.label`
     display: block;
     margin: 0 auto;
-`;
-
-export const Check = styled.p`
-    display: flex;
-    align-items: center;
-    line-height: 21px;
-    margin: 0 auto;
-    cursor: pointer;
-
-    &::after {
-        content: "";
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        margin-left: 8px;
-
-        background-image: url(${unchecked});
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-
-    Input:checked + &::after {
-        background-image: url(${checked});
-    }
 `;
 
 export const CustomButton = styled(Button)`

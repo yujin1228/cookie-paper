@@ -11,11 +11,16 @@ export default function OvenList() {
         <OvenBox>
             <OvenItem id="cookie1" name="쿠키메이커1" oven={1} mine={true}/>
             <OvenItem id="starng11" name="최유진" oven={3} mine={false} />
+            <OvenItem id="starng22" name="최유진" oven={3} mine={false} />
+            <OvenItem id="starng33" name="최유진" oven={3} mine={false} />
+            <OvenItem id="starng44" name="최유진" oven={3} mine={false} />
+            <OvenItem id="starng55" name="최유진" oven={3} mine={false} />
+            <OvenItem id="starng66" name="최유진" oven={3} mine={false} />
         </OvenBox>
         <PageContainer>
-            <PageButton /> 
-            <span>1/4</span>
-            <PageButton />
+            <PageButton direction="prev"/> 
+            1/4
+            <PageButton direction="next"/>
         </PageContainer>
     </Container>
     );

@@ -10,7 +10,8 @@ export default function JoinForm() {
 
     //console.log("버튼액티브: "+ buttonActive);
 
-    const duplicateCheckId = () => {
+    const duplicateCheckId = (e) => {
+        e.preventDefault();
         //아이디 중복 체크 요청 -> 중복 여부 response받음
     }
 
@@ -30,7 +31,7 @@ export default function JoinForm() {
             minLength={5} maxLength={20} type="text"
             pattern="^[a-z]+[a-z0-9]{4,21}$"
             required/>
-            <InputButton>중복확인</InputButton>
+            <InputButton type="button" onClick={duplicateCheckId}>중복확인</InputButton>
             </InputBox>
         </FormGroup>
         {/* 회원가입 - 비밀번호 입력창 */}

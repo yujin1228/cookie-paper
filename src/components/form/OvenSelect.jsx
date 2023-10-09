@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ovens } from '../../style/_ImgImport';
-import { Check, CustomButton, Form, H2, Img, Input, Label, SelectBox, SelectItem } from '../../style/OvenSelectStyle';
+import { CustomButton, Form, H2, Img, Label, SelectBox, SelectItem } from '../../style/OvenSelectStyle';
+import { Input, Check } from '../../style/ShareStyle';
 
 
 export default function OvenSelect() {
@@ -15,9 +16,9 @@ export default function OvenSelect() {
 
     const ovenItems = ovenitems.map((oven, index) => (  
         <label onClick={setSelectedValue} key={index}>
-        {selectedOven == ovenids[index] ?
-        (<Input type="radio" name="oven" value={ovenids[index]} defaultChecked />)
-        :(<Input type="radio" name="oven" value={ovenids[index]} />)}
+        {index ? //라디오버튼에 기본선택값 주기
+        (<Input type="radio" name="oven" value={ovenids[index]} />):
+        (<Input type="radio" name="oven" value={ovenids[index]} defaultChecked />)}
         <SelectItem>
             <Img src={oven}/>
         </SelectItem>
@@ -35,7 +36,7 @@ export default function OvenSelect() {
                 <Check>내 오븐을 비공개로 설정하기</Check>
             </Label>
         </SelectBox>
-        <CustomButton>내 오븐 만들기</CustomButton>          
+        <CustomButton $buttonActive={true}>내 오븐 만들기</CustomButton>          
     </Form>
     </>
     );

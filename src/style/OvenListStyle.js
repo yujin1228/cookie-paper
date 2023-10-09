@@ -4,7 +4,6 @@ import title from "../assets/img/oven-list-title.png"
 export const Container = styled.div`
     width: 1200px;
     height: 673px;
-    margin: 21px auto;
     background-color: var(--orange-300);
     border-radius: 20px;
     padding: 32px 60px;
@@ -28,11 +27,10 @@ export const Title = styled.div`
 
 export const OvenBox = styled.div`
     width: 100%;
-    height: 558px;
+    max-height: 558px;
     display: flex;
     flex-wrap: wrap;
     gap: 24px 53px;
-    margin-bottom: 16px;
 `;
 
 export const Oven = styled.div`

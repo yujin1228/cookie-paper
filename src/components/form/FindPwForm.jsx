@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from '../../style/FormStyle';
 import CheckEmail from './CheckEmail';
 
 export default function FindPwForm() {
+    const [userId, setUserId] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userPw, setUserPw] = useState('');
+    
     return(
     <Form>
         <FormGroup>

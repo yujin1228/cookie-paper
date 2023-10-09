@@ -13,7 +13,7 @@ export default function LoginPage(){
     <FormContainer width="284px">
       <FormTitle>로그인</FormTitle>
       <LoginForm />
-      <LinkButton to="/join/info">회원가입</LinkButton>
+      <LinkButton to="/join">회원가입</LinkButton>
       <LinkBox $top="144px">
       <BasicLink to="/find/userid">아이디 찾기</BasicLink>
       <BasicLink to="/find/userpw">비밀번호 찾기</BasicLink>

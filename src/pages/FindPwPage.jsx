@@ -14,7 +14,7 @@ export default function FindPwPage(){
     <FindPwForm />
     <LinkBox $top="100px">
       <BasicLink to="/login">로그인 하러가기</BasicLink>
-      <BasicLink to="/join/info">회원가입</BasicLink>
+      <BasicLink to="/join">회원가입</BasicLink>
     </LinkBox>
   </FormContainer>
   </>

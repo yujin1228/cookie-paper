@@ -7,10 +7,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     width: fit-content;
-    position: absolute;
-    top: 46%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translateY(-30px);
 `;
 
 export const Logo = styled.div`
@@ -43,7 +40,6 @@ export const UserButton = styled(Link)`
     border-radius: 4px;
     color: var(--black);
     font-size: 20px;
-    font-family: var(--main-font);
     text-align: center;
     cursor: pointer;
 `;

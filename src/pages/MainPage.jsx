@@ -18,7 +18,7 @@ export default function MainPage(){
           </ButtonBox>
           <UserButtonBox>
             <UserButton to="/login">로그인</UserButton>
-            <UserButton to="/join/info">회원가입</UserButton>
+            <UserButton to="/join">회원가입</UserButton>
           </UserButtonBox>          
         </Container>
       </Bg>

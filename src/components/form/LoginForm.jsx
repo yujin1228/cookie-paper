@@ -16,13 +16,14 @@ export default function LoginForm() {
         console.log("pw입력");
     }
     
-    const onClickLogin = () => {
-        //로그인api
+    const submitLogin = (e) => {
+        e.preventDefault();
+        //login(userId, userPw);
     }
 
 
     return(
-        <Form>
+        <Form onSubmit={submitLogin}>
             <Input id="userId" onChange={onChangeId}
             placeholder="ID" type="text" required />
             <Input id="userPw" onChange={onChangePw}

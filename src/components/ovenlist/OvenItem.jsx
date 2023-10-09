@@ -67,5 +67,6 @@ const OvenImg = styled.img`
     object-position: center;
     margin: 0 10px 4px 10px;
     vertical-align: bottom;
+    -webkit-user-drag: none;
     
 `;

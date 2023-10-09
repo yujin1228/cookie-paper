@@ -18,6 +18,8 @@ const Header = styled.header`
     background-color: #FBE6BE;
     width: 100%;
     height: 84px;
+    position: fixed;
+    top: 0;
 `;
 
 const Container = styled.div`

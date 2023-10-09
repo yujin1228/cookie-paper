@@ -14,7 +14,7 @@ export default function CheckEmail(props) {
         return `${m}:${s}`
     }
 
-    useEffect(()=>{
+    const timer = useEffect(()=>{
         let interval;
         
         if(activeTimer && time > 0){
@@ -35,14 +35,18 @@ export default function CheckEmail(props) {
     },[time,activeTimer]);
     /*===========================*/
     
-    const onClickPassCode = () => { 
-        //이메일 입력값 없을때 동작하면 안됨!
+    const submitPassCode = (e) => { //인증번호 발송 버튼
+        e.preventDefault();
         if(activeTimer){
             //타이머가 이미 활성화 되어있다면 다시 시작
             setTime(600); // 10분으로 리셋
             console.log("타이머 다시 시작");
         }
         setActiveTimer(true);
+    }
+
+    const checkPassCode = (e) => { //인증번호 확인 버튼
+        e.preventDefault();
     }
 
     useEffect(()=>{
@@ -63,7 +67,7 @@ export default function CheckEmail(props) {
             <InputBox>
             <Input id="userEmail" type="email"
             placeholder="이메일을 입력해주세요" required />
-            <InputButton onClick={onClickPassCode}>인증번호 발송</InputButton>
+            <InputButton type="button" onClick={submitPassCode}>인증번호 발송</InputButton>
             </InputBox>
         </FormGroup>
         {/* 인증번호 입력창 */}
@@ -72,8 +76,8 @@ export default function CheckEmail(props) {
             <CodeTimer>{timeFormat(time)}</CodeTimer>
             <InputBox>
             <Input id="passCode" placeholder="인증번호를 입력해주세요" 
-            pattern="/^[0-9]*$/" required disabled />
-            <InputButton disabled>인증번호 확인</InputButton>
+            pattern="/^[0-9]*$/" />
+            <InputButton type="button" onClick={checkPassCode}>인증번호 확인</InputButton>
             </InputBox>
         </FormGroup>
         </>

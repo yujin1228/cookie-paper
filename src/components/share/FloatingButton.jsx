@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { floatIcon } from '../../style/_ImgImport';
 
 export default function FloatingButton () {
     const [toggle,setToggle] = useState(false);
+    const location = useLocation().pathname;
+    
+    useEffect(() => {
+        setToggle(false);        
+    },[location])
+    
 
     const clickToggle = () => {
         setToggle((prev) => !prev);
     }
 
-    //로그아웃 로직 
-    const logOutFunction = () => {}
+    //로그아웃 로직 const logOutFunction = () => {}
+    
 
+
+    
     return (
     <Container>
         <SubButton 
             to="/" 
-            $img={floatIcon.main} 
+            $img={floatIcon.main}
             $toggle={toggle} 
             $transy="-352px"
         />
@@ -55,7 +63,7 @@ const Container = styled.div`
     bottom: 0;
     right: 0;
     transform: translate(-80px,-94px);
-    z-index: 101;
+    z-index: 100;
 `
 
 const Button = styled.button`
@@ -82,7 +90,7 @@ const Button = styled.button`
 
 const SubButton = styled(Link)`
     width: 72px;
-    height: 72px;
+    height: 72px;  
 
     position: absolute;
     bottom: 0;

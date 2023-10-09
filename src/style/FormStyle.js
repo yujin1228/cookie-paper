@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
     max-width: ${(props) => props.width};
-    font-family: var(--main-font);
     margin: 48px auto;
 `;
 
@@ -61,7 +60,6 @@ export const InputButton = styled.button`
     right: 0;
     transform: translate(-14px,-50%);
 
-    font-family: var(--main-font);
     font-size: 12px;
     line-height: 16px;
 
@@ -79,7 +77,6 @@ export const Button = styled.button`
     padding: 16px 0;
     font-size: 20px;
     line-height: 27px;
-    font-family: var(--main-font);
     margin-top: ${(props) => props.$top};
 
     background-color: ${props => props.$buttonActive ? 'var(--orange-700);' : 'var(--gray-700);'};

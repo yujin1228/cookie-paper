@@ -29,8 +29,8 @@ export default function App() {
         {/* Header가 필요한 form 컴포넌트 라우팅 */}
         <Route element={<FormLayout />}>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/join/info" element={<JoinPage />} />
-          <Route path="/join/ovenselect" element={<SelectOvenPage />} />
+          <Route path="/join" element={<JoinPage />} />
+          <Route path="/ovenselect" element={<SelectOvenPage />} />
           <Route path="/find/userid" element={<FindIdPage />} />
           <Route path="/find/userpw" element={<FindPwPage />} />
         </Route>
