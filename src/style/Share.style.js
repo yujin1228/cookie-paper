@@ -36,7 +36,7 @@ export const OvenButton = styled.button`
     box-shadow: 0 5px 8px 0 rgba(167, 74, 7, 0.6);
 
     color: var(--brown-300);
-    font-size: 20px;
+    font-size: ${props => props.$fonts || '20px'};
     font-weight: 700;
     line-height: 27px;
 
