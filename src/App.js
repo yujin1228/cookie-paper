@@ -1,61 +1,37 @@
-import React from 'react';
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
-import MainPage from './pages/MainPage';
-import LoginPage from './pages/LoginPage';
-import JoinPage from './pages/JoinPage';
-import SelectOvenPage from './pages/SelectOvenPage';
-import FindIdPage from './pages/FindIdPage';
-import FindPwPage from './pages/FindPwPage';
-import OvenListPage from './pages/OvenListPage';
-import UserOvenPage from './pages/UserOvenPage';
-import FormHeader from './components/share/FormHeader';
-import FloatingButton from './components/share/FloatingButton';
-import GlobalStyle from './style/_GlobalStyle';
+import { useRecoilState } from 'recoil';
+import { LoginState } from './atoms/LoginState';
+import { MsgOpen } from './atoms/MsgOpenTimer';
+import GlobalStyle from './style/_Global.style';
+import AppRouter from './routers/AppRouter';
+import LoadingPage from './pages/LoadingPage';
+import { Timer } from './components/share/Timer';
+import OpenServiceModal from './components/share/OpenServiceModal';
 
 export default function App() {
+  Timer();//현재시간이 메시지오픈일을 경과했다면 OpenMsg상태에 true
+  const [isLoggedIn,setIsLoggedIn] = useRecoilState(LoginState);
+  const [isLoading,setIsLoading] = useState(true);
+
+  
+  useEffect(()=>{
+    //로컬스토리지에 저장된 토큰이 있다면 로그인상태에 true
+    if (localStorage.getItem('cp-token')) setIsLoggedIn(true);
+    
+    //2초 로딩 후 페이지렌더링
+    //setTimeout(()=>{ setIsLoading(false); },2000);
+    setIsLoading(false);
+  })
+
+
   return (
     <>
     <GlobalStyle />
     <HelmetProvider>
-    <BrowserRouter>
-      <Routes>
-        {/* 플로팅버튼이 필요한 주요페이지 컴포넌트 라우팅 */}
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/ovenlist" element={<OvenListPage />} />
-          <Route path="/oven/:id" element={<UserOvenPage />} />
-        </Route>
-        {/* Header가 필요한 form 컴포넌트 라우팅 */}
-        <Route element={<FormLayout />}>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/join" element={<JoinPage />} />
-          <Route path="/ovenselect" element={<SelectOvenPage />} />
-          <Route path="/find/userid" element={<FindIdPage />} />
-          <Route path="/find/userpw" element={<FindPwPage />} />
-        </Route>
-      </Routes>  
-    </BrowserRouter>
+      {isLoading ? <LoadingPage /> : <AppRouter />}
     </HelmetProvider>
     </>
 
-  );
-}
-
-const FormLayout = () => {
-  return(
-    <>
-      <FormHeader />
-      <Outlet />
-    </>
-  );
-}
-
-const MainLayout = () => {
-  return(
-    <>
-      <FloatingButton />
-      <Outlet />
-    </>
   );
 }
