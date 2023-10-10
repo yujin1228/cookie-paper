@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Label, FormGroup, InputBox, Input, InputButton, Button, NameGuide} from '../../style/FormStyle';
+import { Form, Label, FormGroup, InputBox, Input, InputButton, Button, NameGuide} from '../../style/Form.style';
 import CheckEmail from './CheckEmail';
 
 export default function JoinForm() {

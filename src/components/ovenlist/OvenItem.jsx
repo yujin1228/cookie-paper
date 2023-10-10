@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { ovens } from "../../style/_ImgImport";
+import { ovens } from "../../style/_Img.import";
 import { useNavigate } from "react-router-dom";
 
 export default function OvenItem(props) {

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router';
 import UserOven from '../components/useroven/UserOven';
 import OvenHeader from '../components/share/OvenHeader';
-import { Bg, Body } from '../style/ShareStyle';
+import { Bg, Body } from '../style/Share.style';
 import ovenback from '../assets/img/back_oven.png';
 
 export default function UserOvenPage() {

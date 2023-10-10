@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Dimmed, OvenButton } from "../../style/ShareStyle";
-import { Container, CloseButton, TextBox, TextInput, Title, TextCount, NameInput, From, Box } from "../../style/MessageModalStyle";
-import { Input, Check } from '../../style/ShareStyle';
-import { cookies } from "../../style/_ImgImport";
+import { Dimmed, OvenButton } from "../../style/Share.style";
+import { Container, CloseButton, TextBox, TextInput, Title, TextCount, NameInput, From, Box } from "../../style/MessageModal.style";
+import { Input, Check } from '../../style/Share.style';
+import { cookies } from "../../style/_Img.import";
 import CookieSelect from "./CookieSelect";
 
 export default function CreateMessage(props) {

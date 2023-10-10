@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FormContainer, FormTitle } from '../style/FormStyle';
+import { FormContainer, FormTitle } from '../style/Form.style';
 import JoinForm from '../components/form/JoinForm';
 
 export default function JoinPage(){

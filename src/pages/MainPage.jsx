@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Container, Logo, ButtonBox, UserButtonBox, UserButton } from '../style/MainStyle';
-import { Body, Bg, Button } from '../style/ShareStyle';
+import { Container, Logo, ButtonBox, UserButtonBox, UserButton } from '../style/Main.style';
+import { Body, Bg, Button } from '../style/Share.style';
 
 export default function MainPage(){
   return(

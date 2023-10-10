@@ -1,8 +1,8 @@
-import { Dimmed } from "../../style/ShareStyle";
+import { Dimmed } from "../../style/Share.style";
 import { styled } from "styled-components";
-import { Container, CloseButton, TextBox, Box } from "../../style/MessageModalStyle";
-import { Comment, CookieImg, P } from "../../style/MessageModalStyle";
-import { cookies } from "../../style/_ImgImport";
+import { Container, CloseButton, TextBox, Box } from "../../style/MessageModal.style";
+import { Comment, CookieImg, P } from "../../style/MessageModal.style";
+import { cookies } from "../../style/_Img.import";
 
 export default function ReadMessage(props) {
 

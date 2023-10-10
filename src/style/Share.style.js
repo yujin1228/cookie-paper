@@ -46,17 +46,20 @@ export const OvenButton = styled.button`
 
 /*======= 배경 컴포넌트 =======*/
 export const Body = styled.div`
+    width: 100%;
     height: 100vh;
     background-image: linear-gradient(to right, 
     ${props => props.$startcolor || '#F9D695'}, 
     ${props => props.$endcolor || '#FCDEA4' }  );
-    display: flex;
+    /* display: flex;
     justify-content: center;
+    align-items: center; */
 `;  
 
 export const Bg = styled.div`
     width: 1440px;
     height: 100%;
+    margin: 0 auto;
     background: url(${props => props.$back || mainback }) no-repeat;
     background-size: cover;
     background-position: top;

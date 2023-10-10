@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FormContainer, FormTitle, LinkBox, BasicLink} from '../style/FormStyle';
-import { LinkButton } from '../style/LoginStyle';
+import { FormContainer, FormTitle, LinkBox, BasicLink} from '../style/Form.style';
+import { LinkButton } from '../style/Login.style';
 import LoginForm from '../components/form/LoginForm';
 
 export default function LoginPage(){
@@ -11,7 +11,7 @@ export default function LoginPage(){
       <title>쿠키페이퍼 | 로그인</title>
     </Helmet>
     <FormContainer width="284px">
-      <FormTitle>로그인</FormTitle>
+      <FormTitle $marginb="62px">로그인</FormTitle>
       <LoginForm />
       <LinkButton to="/join">회원가입</LinkButton>
       <LinkBox $top="144px">

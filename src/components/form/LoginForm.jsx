@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Form } from '../../style/FormStyle';
-import { Input } from '../../style/LoginStyle';
+import { Button, Form } from '../../style/Form.style';
+import { Input } from '../../style/Login.style';
 
 export default function LoginForm() {
     const [userId,setUserId] = useState('');

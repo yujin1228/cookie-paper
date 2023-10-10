@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { BasicLink, FormContainer, FormTitle, LinkBox } from '../style/FormStyle';
+import { BasicLink, FormContainer, FormTitle, LinkBox } from '../style/Form.style';
 import FindPwForm from '../components/form/FindPwForm';
 
 export default function FindPwPage(){

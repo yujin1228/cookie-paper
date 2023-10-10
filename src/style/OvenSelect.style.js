@@ -1,11 +1,10 @@
 import { styled } from "styled-components";
-import { Button } from './FormStyle';
+import { Button } from './Form.style';
 
 export const H2 = styled.h2`
     text-align: center;
     letter-spacing : 2px;
     line-height: 21px;
-    margin-top: 8px;
 `;
 
 export const Form = styled.form`

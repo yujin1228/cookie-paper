@@ -53,13 +53,13 @@ export const OvenTimerBox = styled.div`
     margin: 0 auto;
 
     font-size: 24px;
-    font-family: var(--timer-font);
+    font-family: ${props => props.$end ? 'var(--message-font)' :'var(--timer-font)'};
     color: var(--gray-300);
     text-align: center;
-    letter-spacing: 16px;
+    letter-spacing: ${props => props.$end ? '0' :'16px'};
     line-height: 69px;
 
-    padding-left: 16px;
+    padding-left: ${props => props.$end ? '0' :'16px'};
 `;
 
 export const OvenImg = styled.img`

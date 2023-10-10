@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button } from '../../style/FormStyle';
+import { Form, FormGroup, Label, Input, Button } from '../../style/Form.style';
 import CheckEmail from './CheckEmail';
 
 export default function FindPwForm() {

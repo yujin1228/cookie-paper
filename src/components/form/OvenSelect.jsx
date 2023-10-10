@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ovens } from '../../style/_ImgImport';
-import { CustomButton, Form, H2, Img, Label, SelectBox, SelectItem } from '../../style/OvenSelectStyle';
-import { Input, Check } from '../../style/ShareStyle';
+import { ovens } from '../../style/_Img.import';
+import { CustomButton, Form, H2, Img, Label, SelectBox, SelectItem } from '../../style/OvenSelect.style';
+import { Input, Check } from '../../style/Share.style';
 
 
 export default function OvenSelect() {

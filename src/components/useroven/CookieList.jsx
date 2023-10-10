@@ -1,6 +1,6 @@
-import { PageButton, PageContainer } from "../../style/ShareStyle";
-import { CookieBox, CookieImg, CookieItem, CookieName, OvenPen } from "../../style/UserOvenStyle";
-import { doughs } from "../../style/_ImgImport";
+import { PageButton, PageContainer } from "../../style/Share.style";
+import { CookieBox, CookieImg, CookieItem, CookieName, OvenPen } from "../../style/UserOven.style";
+import { doughs } from "../../style/_Img.import";
 
 
 export default function CookieList(props) {

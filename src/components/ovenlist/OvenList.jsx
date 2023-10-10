@@ -1,6 +1,6 @@
 import OvenItem from "./OvenItem";
-import { Container, OvenBox, Title } from "../../style/OvenListStyle"
-import { PageButton, PageContainer } from "../../style/ShareStyle";
+import { Container, OvenBox, Title } from "../../style/OvenList.style"
+import { PageButton, PageContainer } from "../../style/Share.style";
 
 export default function OvenList() {
     //OvenBox안에 OvenItem들 map으로 뿌려주고 페이지 넘기는 기능 있어야함...

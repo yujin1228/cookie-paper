@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from "styled-components";
 import { Link, useLocation } from "react-router-dom";
-import { floatIcon } from '../../style/_ImgImport';
+import { floatIcon } from '../../style/_Img.import';
 
 export default function FloatingButton () {
     const [toggle,setToggle] = useState(false);

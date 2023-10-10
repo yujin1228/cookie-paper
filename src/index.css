@@ -52,6 +52,8 @@ table {
 #root {
 	height: 100vh;
 	background-color: #FFFCF9;
+	display: flex;
+	align-items: center;
 }
 
 html {

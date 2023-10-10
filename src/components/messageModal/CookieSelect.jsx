@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
-import { cookies } from "../../style/_ImgImport";
+import { cookies } from "../../style/_Img.import";
 import { useState } from "react";
-import { Input } from "../../style/ShareStyle";
+import { Input } from "../../style/Share.style";
 
 
 export default function CookieSelect() {

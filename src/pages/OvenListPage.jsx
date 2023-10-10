@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Bg, Body, Dimmed } from '../style/ShareStyle';
+import { Bg, Body, Dimmed } from '../style/Share.style';
 import OvenHeader from '../components/share/OvenHeader';
 import OvenList from '../components/ovenlist/OvenList';
 import listback from '../assets/img/list_back.png';

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ButtonBox, Container, ID, OvenImg, OvenInfo, Title } from "../../style/UserOvenStyle";
-import { ovens } from "../../style/_ImgImport";
-import { OvenButton } from "../../style/ShareStyle";
+import { ButtonBox, Container, ID, OvenImg, OvenInfo, Title } from "../../style/UserOven.style";
+import { ovens } from "../../style/_Img.import";
+import { OvenButton } from "../../style/Share.style";
 import CreateMessage from "../messageModal/CreateMessage";
 import OvenTimer from "./OvenTimer";
 import CookieList from "./CookieList";
@@ -22,7 +22,6 @@ export default function UserOven(props) {
         navigate("/ovenlist");
     }
 
-    console.log("??")
     return(
         <>
         <Container>
