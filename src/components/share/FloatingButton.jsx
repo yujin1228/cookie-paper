@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { styled } from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { floatIcon } from '../../style/_Img.import';
+import { useRecoilState } from 'recoil';
+import { LoginState } from '../../atoms/LoginState';
 
 export default function FloatingButton () {
+    const [isLoggedIn,setIsLoggedIn] = useRecoilState(LoginState);
     const [toggle,setToggle] = useState(false);
     const location = useLocation().pathname;
     
@@ -16,10 +19,9 @@ export default function FloatingButton () {
         setToggle((prev) => !prev);
     }
 
-    //로그아웃 로직 const logOutFunction = () => {}
-    
-
-
+    const logOutFunction = () => {
+        console.log("로그아웃")
+    }
     
     return (
     <Container>
@@ -29,26 +31,37 @@ export default function FloatingButton () {
             $toggle={toggle} 
             $transy="-352px"
         />
+        {isLoggedIn ? 
         <SubButton 
             to="/ovenlist"
             $img={floatIcon.ovenlist} 
             $toggle={toggle} 
-            $transy="-264px"
-        />
+            $transy="-264px"/>:
         <SubButton 
-            as="a" href="https://www.naver.com/" target="_blank"
+            to="/ovenlist"
+            $img={floatIcon.ovenlist} 
+            $toggle={toggle} 
+            $transy="-264px"/>
+        }
+        <SubButton 
+            as="a" href="https://fierce-dive-1ec.notion.site/418026c7965a48639e5a9328be79823b" target="_blank"
             $img={floatIcon.guide} 
             $toggle={toggle} 
             $transy="-176px"
         />
-        {/* 로그인여부에 따른 분기처리 */}
-        {/* <SubButton to="/" onClick={logOutFunction}
-        $img={floatIcon.logout} $toggle={toggle} $transy="-88px"/> */}
+        {isLoggedIn ? //로그인여부에 따른 분기처리
         <SubButton 
-        to="/login"
-        $img={floatIcon.login} 
-        $toggle={toggle} 
-        $transy="-88px"/>
+            as="button"
+            onClick={logOutFunction}
+            $img={floatIcon.logout} 
+            $toggle={toggle} 
+            $transy="-88px"/>:
+        <SubButton 
+            to="/login"
+            $img={floatIcon.login} 
+            $toggle={toggle} 
+            $transy="-88px"/>
+        }
         <Button 
             onClick={clickToggle} 
             $img={floatIcon.cookie} 

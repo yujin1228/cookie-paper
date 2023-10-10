@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { ButtonBox, Container, ID, OvenImg, OvenInfo, Title } from "../../style/UserOven.style";
 import { ovens } from "../../style/_Img.import";
 import { OvenButton } from "../../style/Share.style";
 import CreateMessage from "../messageModal/CreateMessage";
 import OvenTimer from "./OvenTimer";
 import CookieList from "./CookieList";
-import { useNavigate } from "react-router";
 import ReadMessage from "../messageModal/ReadMessage";
+import { useRecoilState } from "recoil";
+import { MsgOpen } from "../../atoms/MsgOpenTimer";
 
 
 export default function UserOven(props) {
+    const [isOpenMsg,setIsOpenMsg] = useRecoilState(MsgOpen);
     const [modalActive, setModalActive] = useState(false);
     const [readModal, setReadModal] = useState(false);
     const navigate = useNavigate();
