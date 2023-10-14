@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { floatIcon } from '../../style/_Img.import';
 import { useRecoilState } from 'recoil';
-import { LoginState } from '../../atoms/LoginState';
+import { LoginState } from '../../atoms/loginState';
 
 export default function FloatingButton () {
     const [isLoggedIn,setIsLoggedIn] = useRecoilState(LoginState);
@@ -31,10 +31,10 @@ export default function FloatingButton () {
             $toggle={toggle} 
             $transy="-352px"
         />
-        {isLoggedIn ? 
+        {isLoggedIn ? //로그인여부에 따른 분기처리 
         <SubButton 
             to="/ovenlist"
-            $img={floatIcon.ovenlist} 
+            $img={floatIcon.myoven} 
             $toggle={toggle} 
             $transy="-264px"/>:
         <SubButton 
