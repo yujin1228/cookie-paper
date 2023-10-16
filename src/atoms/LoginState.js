@@ -7,7 +7,5 @@ export const LoginState = atom({
 
 export const UserInfo = atom({
     key:'user-infomaion',
-    default: {
-        
-    }
+    default: { }
 })
