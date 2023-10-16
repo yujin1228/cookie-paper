@@ -25,6 +25,5 @@ authInstance.interceptors.request.use((config) => {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
         };
     }
-
     return config;
 });
