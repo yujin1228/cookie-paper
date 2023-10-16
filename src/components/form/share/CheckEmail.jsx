@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormGroup, Label, InputBox, Input, InputButton, CodeTimer } from '../../style/Form.style';
+import { FormGroup, Label, InputBox, Input, InputButton, CodeTimer } from '../../../style/Form.style';
 
 export default function CheckEmail(props) {
     const [userEmail, setUserEmail] = useState('');//이메일 입력값

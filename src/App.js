@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { useRecoilState } from 'recoil';
-import { LoginState } from './atoms/LoginState';
-import { MsgOpen } from './atoms/MsgOpenTimer';
+import { LoginState } from './atoms/loginState';
+import { MsgOpen } from './atoms/msgOpenTimer';
 import GlobalStyle from './style/_Global.style';
 import AppRouter from './routers/AppRouter';
 import LoadingPage from './pages/LoadingPage';
@@ -20,11 +20,10 @@ export default function App() {
     if (localStorage.getItem('cp-token')) setIsLoggedIn(true);
     
     //2초 로딩 후 페이지렌더링
-    //setTimeout(()=>{ setIsLoading(false); },2000);
-    setIsLoading(false);
+    setTimeout(()=>{ setIsLoading(false); },2500);
   })
 
-
+  console.log("렌더링?");
   return (
     <>
     <GlobalStyle />

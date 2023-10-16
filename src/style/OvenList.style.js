@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import title from "../assets/img/oven-list-title.png"
 
 export const Container = styled.div`
-    width: 1200px;
+    max-width: 1440px;
+    min-width: 830px;
     height: 673px;
     background-color: var(--orange-300);
     border-radius: 20px;
     padding: 32px 60px;
     font-family: var(--main-font);
     position: relative;
+    margin: 26px 120px;
 `;
 
 export const Title = styled.div`
@@ -28,15 +30,16 @@ export const Title = styled.div`
 export const OvenBox = styled.div`
     width: 100%;
     max-height: 558px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 24px 53px;
 `;
 
 export const Oven = styled.div`
     position: relative;
     font-family: var(--main-font);
-    width: fit-content;
+    width: 100%;
+    max-width: 230px;
     height: fit-content;
     cursor: pointer;
 
@@ -71,9 +74,11 @@ export const OvenId = styled.p`
     color: var(--gray-700);
     font-size: 12px;
     line-height: 16px;
-`
+`;
+
 export const OvenImg = styled.img`
-    width: 210px;
+    width: 100%;
+    max-width: 210px;
     height: 128px;
     object-fit: cover;
     object-position: center;

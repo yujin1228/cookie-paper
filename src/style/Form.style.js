@@ -9,7 +9,7 @@ export const FormContainer = styled.div`
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: ${props => props.$gap || '20px'};
 `;
 
 export const FormTitle = styled.h1`
@@ -41,6 +41,16 @@ export const Input = styled.input`
     &::placeholder {
         color: ${props => props.disabled? 'var(--gray-700);': 'var(--black);'};
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-transition: background-color 9999s ease-out;
+        -webkit-box-shadow: 0 0 0px 1000px 'var(--orange-300);' inset !important;
+        -webkit-text-fill-color: 'var(--orange-300);' !important;
+    }
 `;
 
 export const Label = styled.label`
@@ -69,6 +79,10 @@ export const InputButton = styled.button`
 
 export const FormMessage = styled.p`
     font-family: var(--basic-font);
+    font-size: 12px;
+    color: ${props => props.$valid ? 'var(--black)' : 'var(--red)'};
+    margin-top: ${props => props.$mtop || '8px'};
+    margin-left: ${props => props.$mleft || '16px'};
 `;
 
 export const Button = styled.button`

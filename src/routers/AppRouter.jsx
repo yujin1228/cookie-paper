@@ -42,11 +42,11 @@ const FormLayout = () => {
     );
   }
   
-  const MainLayout = () => {
-    return(
-      <>
-        <FloatingButton />
-        <Outlet />
-      </>
-    );
-  }
+const MainLayout = () => {
+  return(
+    <>
+      <FloatingButton />
+      <Outlet />
+    </>
+  );
+}

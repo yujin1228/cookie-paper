@@ -52,8 +52,6 @@ table {
 #root {
 	height: 100vh;
 	background-color: #FFFCF9;
-	display: flex;
-	align-items: center;
 }
 
 html {
@@ -62,4 +60,6 @@ html {
 
 body {
     min-height: 100%;
+	background-image: linear-gradient(to right, #F9D695, #FCDEA4 );
 }
+

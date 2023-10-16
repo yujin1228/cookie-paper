@@ -57,19 +57,13 @@ export const Body = styled.div`
 `;  
 
 export const Bg = styled.div`
-    width: 1440px;
+    max-width: 1440px;
     height: 100%;
     margin: 0 auto;
     background: url(${props => props.$back || mainback }) no-repeat;
     background-size: cover;
     background-position: top;
     position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
 `;
 
 export const Dimmed = styled.div`

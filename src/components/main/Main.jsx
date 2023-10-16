@@ -2,13 +2,12 @@ import React from 'react';
 import { Container, Logo, ButtonBox, UserButtonBox, UserButton } from '../../style/Main.style';
 import { Button } from '../../style/Share.style';
 import { useRecoilState } from 'recoil';
-import { MsgOpen } from '../../atoms/MsgOpenTimer';
-import { LoginState } from '../../atoms/LoginState';
+import { MsgOpen } from '../../atoms/msgOpenTimer';
+import { LoginState } from '../../atoms/loginState';
 
 export default function Main() {
     const [isLoggedIn,setIsLoggedIn] = useRecoilState(LoginState);
     const [isOpenMsg,setIsOpenMsg] = useRecoilState(MsgOpen);
-
     
 
     return(

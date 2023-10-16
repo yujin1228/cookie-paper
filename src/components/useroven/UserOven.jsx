@@ -8,7 +8,7 @@ import OvenTimer from "./OvenTimer";
 import CookieList from "./CookieList";
 import ReadMessage from "../messageModal/ReadMessage";
 import { useRecoilState } from "recoil";
-import { MsgOpen } from "../../atoms/MsgOpenTimer";
+import { MsgOpen } from "../../atoms/msgOpenTimer";
 
 
 export default function UserOven(props) {

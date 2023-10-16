@@ -14,6 +14,16 @@ export const Input = styled.input`
     &::placeholder {
         color: var(--black);
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-transition: background-color 9999s ease-out;
+        -webkit-box-shadow: 0 0 0px 1000px 'var(--orange-300);' inset !important;
+        -webkit-text-fill-color: 'var(--orange-300);' !important;
+    }
 `;
 
 export const LinkButton = styled(Link)`
@@ -23,7 +33,7 @@ export const LinkButton = styled(Link)`
     border-radius: 16px;
     background-color: var(--orange-400);
     color: var(--black);
-    margin-top: 20px;
+    margin-top: 16px;
     padding: 16px 0;
     font-size: 20px;
     line-height: 27px;

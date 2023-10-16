@@ -28,6 +28,7 @@ import mainIcon from '../assets/img/float_main.png';
 import ovenListIcon from '../assets/img/float_oven_list.png';
 import guideIcon from '../assets/img/float_guide.png';
 import cookie from '../assets/img/float_cookie.svg';
+import myOvenIcon from '../assets/img/float_my_oven.png';
 
 export const ovens = {
     1 : oven1,
@@ -67,6 +68,7 @@ export const floatIcon = {
     login : logInIcon,
     main : mainIcon,
     ovenlist : ovenListIcon,
+    myoven: myOvenIcon,
     guide : guideIcon,
     cookie : cookie
 };

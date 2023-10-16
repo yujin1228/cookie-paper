@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
     width: fit-content;
-    //margin: 26px auto;
+    margin: 26px auto;
     display: flex;
     gap: 25px;
 `
@@ -68,6 +68,7 @@ export const OvenImg = styled.img`
     object-fit: cover;
     object-position: center;
     vertical-align: bottom;
+    -webkit-user-drag: none;
 `;
 
 export const ButtonBox = styled.div`
@@ -110,6 +111,7 @@ export const CookieItem = styled.div`
 export const CookieImg = styled.img`
     height: 120px;
     vertical-align: bottom;
+    -webkit-user-drag: none;
 `;
 
 export const CookieName = styled.h3`

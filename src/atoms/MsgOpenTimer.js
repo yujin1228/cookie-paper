@@ -11,11 +11,17 @@ export const MsgOpen = atom({
     //effects_UNSTABLE: [persistAtom]
 });
 
-export const OvenTime = atom({
-    key:'msgOpenTimer',
-    default: {
-        day: "00",
-        hour: "00",
-        min: "00"
-    }
+export const day = atom({
+    key:'msgOpenTimerD',
+    default: "00"
+})
+
+export const hour = atom({
+    key:'msgOpenTimerH',
+    default: "00"
+})
+
+export const min = atom({
+    key:'msgOpenTimerM',
+    default: "00"
 })

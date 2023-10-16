@@ -3,8 +3,16 @@ import { Helmet } from 'react-helmet-async';
 import { FormContainer, FormTitle, LinkBox, BasicLink} from '../style/Form.style';
 import { LinkButton } from '../style/Login.style';
 import LoginForm from '../components/form/LoginForm';
+import { useNavigate } from 'react-router';
+import { useRecoilValue } from 'recoil';
+import { LoginState } from '../atoms/loginState';
 
 export default function LoginPage(){
+  //로그인상태일때 접속 불가
+  const isLoggedIn = useRecoilValue(LoginState);
+  const navigate = useNavigate();
+  if(isLoggedIn === true) navigate("/");
+
   return(
     <>
     <Helmet>

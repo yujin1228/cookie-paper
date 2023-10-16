@@ -1,10 +1,12 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { MsgOpen,OvenTime } from '../../atoms/MsgOpenTimer';
+import { MsgOpen, day, hour, min } from '../../atoms/msgOpenTimer';
 import { useEffect } from "react";
 
 export const Timer = () => {
     const setIsOpenMsg = useSetRecoilState(MsgOpen);
-    const [ovenTime, setOvenTime] = useRecoilState(OvenTime);
+    const setDay = useSetRecoilState(day);
+    const setHour = useSetRecoilState(hour);
+    const setMin = useSetRecoilState(min);
 
     useEffect(() => {
 
@@ -33,11 +35,9 @@ export const Timer = () => {
                 h = h.toString().padStart(2,"0");
                 m = m.toString().padStart(2,"0");
     
-                setOvenTime(()=>({
-                    day: d,
-                    hour: h,
-                    min: m
-                }));
+                setDay(d);
+                setHour(h);
+                setMin(m);
             }else{
                 setIsOpenMsg(true);
                 clearInterval(timeInterval);

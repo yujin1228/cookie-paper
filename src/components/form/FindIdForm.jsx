@@ -5,11 +5,12 @@ export default function FindIdForm() {
     const [email,setEmail] = useState('');
 
     const onChangeEmail  = (e) => {//이메일 입력 값
-        e.target.value();
+        setEmail(e.target.value)
     }
     
     const submitEmail = (e) => {//이메일 폼 제출
         e.preventDefault();
+        //이메일 제츨 api
     }
 
     return(

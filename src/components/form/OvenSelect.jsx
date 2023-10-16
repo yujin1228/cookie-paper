@@ -3,7 +3,6 @@ import { ovens } from '../../style/_Img.import';
 import { CustomButton, Form, H2, Img, Label, SelectBox, SelectItem } from '../../style/OvenSelect.style';
 import { Input, Check } from '../../style/Share.style';
 
-
 export default function OvenSelect() {
     const [selectedOven,setSelectedOven] = useState(1);
     const ovenitems = Object.values(ovens);
