@@ -17,6 +17,7 @@ export const authInstance = axios.create({
     },
 });
 
+// 토큰이 필요한 경우 요청 전에 로컬스토리지에 토큰 받아오기 (인터셉트)
 authInstance.interceptors.request.use((config) => {
     if (!config.headers.Authorization) {
         config.headers = {
