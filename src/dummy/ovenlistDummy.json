@@ -1,0 +1,80 @@
+[
+  {
+    "ovId": "ovenid1",
+    "usId": "cookiemaker1",
+    "ovDesign": 1,
+    "ovPrivateYn": 0
+  },
+  {
+    "ovId": "ovenid2",
+    "usId": "cookiemaker2",
+    "ovDesign": 2,
+    "ovPrivateYn": 0
+  },
+  {
+    "ovId": "ovenid3",
+    "usId": "cookiemaker3",
+    "ovDesign": 3,
+    "ovPrivateYn": 0
+  },
+  {
+    "ovId": "ovenid4",
+    "usId": "cookiemaker4",
+    "ovDesign": 4,
+    "ovPrivateYn": 1
+  },
+  {
+    "ovId": "ovenid5",
+    "usId": "cookiemaker5",
+    "ovDesign": 5,
+    "ovPrivateYn": 0
+  },
+  {
+    "ovId": "ovenid6",
+    "usId": "cookiemaker6",
+    "ovDesign": 6,
+    "ovPrivateYn": 1
+  },
+  {
+    "ovId": "ovenid7",
+    "usId": "cookiemaker7",
+    "ovDesign": 1,
+    "ovPrivateYn": 1
+  },
+  {
+    "ovId": "ovenid8",
+    "usId": "cookiemaker8",
+    "ovDesign": 2,
+    "ovPrivateYn": 0
+  },
+  {
+    "ovId": "ovenid9",
+    "usId": "cookiemaker9",
+    "ovDesign": 3,
+    "ovPrivateYn": 0
+  },
+  {
+    "ovId": "ovenid10",
+    "usId": "cookiemaker10",
+    "ovDesign": 6,
+    "ovPrivateYn": 1
+  },
+  {
+    "ovId": "ovenid11",
+    "usId": "cookiemaker11",
+    "ovDesign": 3,
+    "ovPrivateYn": 1
+  },
+  {
+    "ovId": "ovenid12",
+    "usId": "cookiemaker12",
+    "ovDesign": 5,
+    "ovPrivateYn": 0
+  },
+  {
+    "ovId": "ovenid13",
+    "usId": "cookiemaker13",
+    "ovDesign": 3,
+    "ovPrivateYn": 0
+  }
+]
