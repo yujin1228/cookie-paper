@@ -1,11 +1,11 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export const timerActive = atom({
-    key:'codeTimerActive',
-    default: false,
+  key: 'codeTimerActive',
+  default: false,
 });
 
 export const codeTime = atom({
-    key:'passCodeTime',
-    default: 600,
+  key: 'passCodeTime',
+  default: 600,
 });
