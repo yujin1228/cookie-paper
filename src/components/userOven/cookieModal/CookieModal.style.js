@@ -107,10 +107,12 @@ export const Comment = styled.div`
   margin-top: 24px;
 `;
 
-export const CookieImg = styled.img`
+export const CookieImg = styled.div`
   width: 302px;
   height: 256px;
-  object-fit: cover;
+  background: url(${(props) => props.$ckimg}) no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 
 export const P = styled.p`

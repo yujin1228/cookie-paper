@@ -13,6 +13,7 @@ export default function JoinPage() {
   const isOpenMsg = useRecoilValue(MsgOpen);
   const navigate = useNavigate();
   if (isLoggedIn === true || isOpenMsg === true) {
+    alert('메시지가 공개되어 가입이 불가능합니다.');
     navigate('/');
   }
 

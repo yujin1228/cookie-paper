@@ -2,8 +2,10 @@ import { keyframes, styled } from 'styled-components';
 
 export const Bg = styled.div`
   background-color: #fcdea4;
+  position: absolute;
   width: 100%;
   height: 100%;
+  z-index: 200;
 `;
 
 export const Container = styled.div`

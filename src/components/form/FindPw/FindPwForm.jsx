@@ -6,6 +6,8 @@ import { RegExp, invalidText } from 'constant/validation';
 import PassCodeTimer from 'components/form/PassCodeTimer/PassCodeTimer';
 import { codeTime, timerActive } from 'atoms/passCodeTimer';
 import { instance } from 'api/axiosInstance';
+import { pwFindAPI, pwUpdateAPI } from 'api/find.api';
+import { useNavigate } from 'react-router';
 
 export default function FindPwForm() {
   const [isEmail, setIsEmail] = useState('');
@@ -14,6 +16,7 @@ export default function FindPwForm() {
   const setTime = useSetRecoilState(codeTime);
   const setActiveTimer = useSetRecoilState(timerActive);
   const passcode = useRef('');
+  const navigate = useNavigate();
 
   //useForm()
   const {
@@ -23,7 +26,21 @@ export default function FindPwForm() {
     getValues,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    const promise = pwUpdateAPI(data);
+    promise
+      .then((res) => {
+        if (res === 'success') {
+          alert('비밀번호 재설정이 완료 되었습니다.');
+          navigate('/login');
+        } else if (res === 'fail') {
+          alert('비밀번호 재설정에 실패했습니다. 다시 시도해주세요.');
+        }
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
 
   //이메일 중복확인
   const duplicationEmail = async () => {
@@ -32,23 +49,24 @@ export default function FindPwForm() {
     if (resultid && resultemail) {
       const userid = getValues('userid');
       const email = getValues('useremail');
-      console.log('유효성통과');
-      const promise = instance.post('user/findPassword', { usId: userid, usEmail: email });
+      const promise = pwFindAPI(userid, email);
+      setIsEmail(true);
+      setEmailText('인증번호를 발송중입니다...');
       promise
         .then((res) => {
-          if (res.data !== 'fail') {
+          if (res !== 'fail') {
             setIsEmail(true);
             setEmailText('인증번호가 발송되었습니다');
-            passcode.current = res.data;
+            passcode.current = res;
             //타이머 시작
             setTime(600);
             setActiveTimer(true);
             setTimeout(() => {
               setEmailText('메일을 받지 못하셨나요? 발송버튼을 다시 눌러주세요');
             }, 5000);
-          } else if (res.data === 'fail') {
+          } else if (res === 'fail') {
             setIsEmail(false);
-            setEmailText('해당 이메일로 가입된 아이디가 없습니다');
+            setEmailText('해당 아이디 또는 이메일로 가입된 아이디가 없습니다');
           }
         })
         .catch((err) => {
@@ -98,7 +116,7 @@ export default function FindPwForm() {
         </InputBox>
         {errors.useremail ? <FormMessage>{errors.useremail.message}</FormMessage> : <FormMessage $valid={isEmail}>{emailText}</FormMessage>}
       </FormGroup>
-      <PassCodeTimer nextStep={nextStep} passode={passcode} />
+      <PassCodeTimer nextStep={nextStep} passcode={passcode} />
       <FormGroup>
         <Label htmlFor="userpw">새 비밀번호 입력</Label>
         <Input

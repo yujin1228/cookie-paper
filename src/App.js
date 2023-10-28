@@ -16,6 +16,9 @@ export default function App() {
     //로컬스토리지에 저장된 토큰이 있다면 로그인상태에 true
     if (localStorage.getItem('CPToken')) {
       setIsLoggedIn(true);
+    } else {
+      const userInfo = { usId: null, usName: null, usOvId: null };
+      localStorage.setItem('CPUserInfo', JSON.stringify(userInfo));
     }
 
     setTimeout(() => {
@@ -26,7 +29,10 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
-      <HelmetProvider>{isLoading ? <LoadingPage /> : <AppRouter />}</HelmetProvider>
+      <HelmetProvider>
+        {isLoading && <LoadingPage />}
+        <AppRouter />
+      </HelmetProvider>
     </>
   );
 }

@@ -2,16 +2,11 @@ import { instance } from 'api/axiosInstance';
 
 //쿠키리스트 api
 export const cookieListAPI = async (ovId, page) => {
-  const reqData = {
-    ovId: ovId,
-    page: page,
-  };
   try {
-    const result = await instance.get('cookie/list?ovId=&page=', reqData);
-    console.log(result.data);
+    const result = await instance.get(`cookie/list?ovId=${ovId}&page=${page}`);
+    return result.data;
   } catch (error) {
-    console.error(error);
-    //throw error;
+    throw error;
   }
 };
 
@@ -20,11 +15,10 @@ export const cookieCreateAPI = async (cookieInfo) => {
   const reqData = cookieInfo;
 
   try {
-    const result = await instance.get('cookie/create', reqData);
-    console.log(result.data);
+    const result = await instance.post('cookie/create', reqData);
+    return result.data;
   } catch (error) {
-    console.error(error);
-    //throw error;
+    throw error;
   }
 };
 
@@ -32,9 +26,8 @@ export const cookieCreateAPI = async (cookieInfo) => {
 export const cookieReadAPI = async (cookieId) => {
   try {
     const result = await instance.get(`cookie/details/${cookieId}`);
-    console.log(result.data);
+    return result.data;
   } catch (error) {
-    console.error(error);
-    //throw error;
+    throw error;
   }
 };

@@ -31,10 +31,12 @@ export const CookieItem = styled.div`
   cursor: pointer;
 `;
 
-export const CookieImg = styled.img`
+export const CookieImg = styled.button`
+  width: 100%;
   height: 120px;
-  vertical-align: bottom;
-  -webkit-user-drag: none;
+  background: url(${(props) => props.$ckimg}) no-repeat;
+  background-size: contain;
+  background-position: center;
 `;
 
 export const CookieName = styled.h3`
@@ -66,4 +68,29 @@ export const PageButton = styled.button`
   height: 16px;
   background-image: url(${(props) => (props.direction == 'next' ? next : prev)});
   background-size: cover;
+`;
+
+export const Dimmed = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+
+  display: ${(props) => (props.$show ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
+  transition: display 0.5s;
+`;
+
+export const ToastText = styled.div`
+  width: fit-content;
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 12px 24px;
+  box-shadow: 0px 5px 8px 0px rgba(167, 74, 7, 0.3);
 `;

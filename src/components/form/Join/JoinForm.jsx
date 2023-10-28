@@ -5,10 +5,8 @@ import { Form, Button, Label, InputBox, Input, InputButton, FormGroup, NameGuide
 import { RegExp, invalidText } from 'constant/validation';
 import PassCodeTimer from 'components/form/PassCodeTimer/PassCodeTimer';
 import { codeTime, timerActive } from 'atoms/passCodeTimer';
-import { instance } from 'api/axiosInstance';
-import { joinAPI } from 'api/join.api';
+import { emailDuplicateAPI, idDuplicateAPI, joinAPI } from 'api/join.api';
 import { useNavigate } from 'react-router';
-import { LoginState } from 'atoms/loginState';
 
 export default function JoinForm() {
   //회원가입 관련 상태
@@ -61,13 +59,13 @@ export default function JoinForm() {
     const result = await trigger('userid');
     if (result) {
       const userid = getValues('userid');
-      const promise = instance.post('user/checkId', { usId: userid });
+      const promise = idDuplicateAPI(userid);
       promise
         .then((res) => {
-          if (res.data === 'ok') {
+          if (res === 'ok') {
             setIsId(true);
             setIdText('사용가능한 아이디입니다');
-          } else if (res.data === 'not ok') {
+          } else if (res === 'not ok') {
             setIsId(false);
             setIdText('이미 가입된 아이디입니다');
           }
@@ -83,20 +81,22 @@ export default function JoinForm() {
     const result = await trigger('useremail');
     if (result) {
       const email = getValues('useremail');
-      const promise = instance.post('user/checkEmail', { usEmail: email });
+      const promise = emailDuplicateAPI(email);
+      setIsEmail(true);
+      setEmailText('인증번호를 발송중입니다...');
       promise
         .then((res) => {
-          if (res.data !== 'not ok') {
+          if (res !== 'not ok') {
             setIsEmail(true);
             setEmailText('인증번호가 발송되었습니다');
-            passcode.current = res.data;
+            passcode.current = res;
             //타이머 시작
             setTime(600);
             setActiveTimer(true);
             setTimeout(() => {
               setEmailText('메일을 받지 못하셨나요? 발송버튼을 다시 눌러주세요');
             }, 5000);
-          } else if (res.data === 'not ok') {
+          } else if (res === 'not ok') {
             setIsEmail(false);
             setEmailText('이미 가입된 이메일입니다');
           }

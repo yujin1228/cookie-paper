@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ovens } from 'constant/imgImport';
 import { CustomButton, Form, H2, Img, Label, SelectBox, SelectItem, Input, Check } from 'components/form/OvenSelect/OvenSelectForm.style';
-import { useLocation, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import { ovenSelectAPI } from 'api/oven.api';
 
 export default function OvenSelect() {
   const [selectedOven, setSelectedOven] = useState(1);
   const [privateOven, setPrivateOven] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
   const ovenitems = Object.values(ovens);
   const ovenids = Object.keys(ovens);
@@ -52,8 +51,9 @@ export default function OvenSelect() {
       .then((res) => {
         console.log(res);
         if (res !== 'fail') {
-          userInfo = { ...userInfo, usOvId: res.ovId };
-          localStorage.setItem('CPUserInfo', JSON.stringify(userInfo));
+          const newUserInfo = { ...userInfo, usOvId: res.ovId };
+          console.log(userInfo);
+          localStorage.setItem('CPUserInfo', JSON.stringify(newUserInfo));
           navigate(`/oven/${userInfo.usId}`);
         } else if (res === 'fail') {
           alert('오븐만들기에 실패했습니다. 다시 시도해주세요.');

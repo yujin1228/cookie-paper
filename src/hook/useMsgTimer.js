@@ -1,10 +1,11 @@
 import { useSetRecoilState } from 'recoil';
-import { MsgOpen, day, hour, min } from 'atoms/msgOpenTimer';
+import { MsgOpen, day, hour, min, showOpenModal } from 'atoms/msgOpenTimer';
 import { useEffect } from 'react';
 import { OPEN_DATE } from 'constant/service';
 
 export default function useMsgTimer() {
   const setIsOpenMsg = useSetRecoilState(MsgOpen);
+  const setShowOpenModal = useSetRecoilState(showOpenModal);
   const setDay = useSetRecoilState(day);
   const setHour = useSetRecoilState(hour);
   const setMin = useSetRecoilState(min);
@@ -40,6 +41,7 @@ export default function useMsgTimer() {
         setMin(m);
       } else {
         setIsOpenMsg(true);
+        setShowOpenModal(true);
         clearInterval(timeInterval);
       }
     }, 1000);

@@ -13,6 +13,7 @@ export default function SelectOvenPage() {
   const isOpenMsg = useRecoilValue(MsgOpen);
   const navigate = useNavigate();
   if (isLoggedIn === false || isOpenMsg === true) {
+    alert('메시지가 공개되어 오븐생성이 불가능합니다.');
     navigate('/');
   }
 

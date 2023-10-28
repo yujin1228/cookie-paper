@@ -8,26 +8,25 @@ export const pwFindAPI = async (id, email) => {
   };
 
   try {
-    const result = instance.post('user/findPassword', reqData);
-    console.log(result.data);
+    const result = await instance.post('user/findPassword', reqData);
+    return result.data;
   } catch (error) {
-    console.error(error);
-    //throw error;
+    throw error;
   }
 };
 
 //비밀번호 재설정
-export const pwUpdateAPI = async (id, pw) => {
+export const pwUpdateAPI = async ({ userid, useremail, userpw }) => {
   const reqData = {
-    usId: id,
-    usPassword: pw,
+    usId: userid,
+    usEmail: useremail,
+    usPassword: userpw,
   };
 
   try {
     const result = await instance.post('user/updatePassword', reqData);
-    console.log(result.data);
+    return result.data;
   } catch (error) {
-    console.error(error);
-    //throw error;
+    throw error;
   }
 };

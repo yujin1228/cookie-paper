@@ -4,10 +4,9 @@ import { authInstance, instance } from 'api/axiosInstance';
 export const ovenSelectAPI = async (id, oven, priv) => {
   const reqData = {
     usId: id,
-    ovDesign: oven,
+    ovDesign: parseInt(oven),
     ovPrivateYn: priv,
   };
-
   try {
     const result = await authInstance.post('oven/create', reqData);
     return result.data;

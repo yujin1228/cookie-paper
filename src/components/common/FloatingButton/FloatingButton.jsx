@@ -20,10 +20,6 @@ export default function FloatingButton() {
     localStorage.removeItem('CPToken');
     localStorage.removeItem('CPUserInfo');
     setIsLoggedIn(false);
-
-    setTimeout(() => {
-      navigate('/');
-    }, 0);
   };
 
   useEffect(() => {

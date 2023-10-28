@@ -26,8 +26,8 @@ export const Dimmed = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: ${(props) => (props.light ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.52)')};
-  z-index: ${(props) => props.zIndex || 101};
+  background-color: rgba(0, 0, 0, 0.52);
+  z-index: 101;
 
   display: flex;
   justify-content: center;

@@ -1,14 +1,11 @@
-import { useState } from 'react';
 import { styled } from 'styled-components';
 import { cookies } from 'constant/imgImport';
 import { Input } from 'components/userOven/cookieModal/CookieModal.style';
 
-export default function CookieSelect() {
-  const [selectedCookie, setSelectedCookie] = useState(1);
+export default function CookieSelect({ selectedCookie, setSelectedCookie }) {
   const cookieitems = Object.values(cookies);
   const cookieids = Object.keys(cookies);
 
-  console.log(selectedCookie);
   const setSelectedValue = (e) => {
     //선택된 오븐의 value값을 상태selectedOven 에 저장
     setSelectedCookie(e.target.value);

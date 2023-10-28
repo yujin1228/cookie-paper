@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { useRecoilState } from 'recoil';
 import { ButtonBox, Container, ID, OvenImg, OvenInfo, Title } from 'components/userOven/oven/UserOven.style';
 import { ovens } from 'constant/imgImport';
@@ -13,7 +13,7 @@ import { MsgOpen } from 'atoms/msgOpenTimer';
 export default function UserOven({ id, name, oven, pri, ovid }) {
   const [isOpenMsg, setIsOpenMsg] = useRecoilState(MsgOpen);
   const [modalActive, setModalActive] = useState(false);
-  const [readModal, setReadModal] = useState(false);
+  const [readCookie, setReadCookie] = useState(null);
   const navigate = useNavigate();
   const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
 
@@ -56,10 +56,10 @@ export default function UserOven({ id, name, oven, pri, ovid }) {
             </OvenButton>
           </ButtonBox>
         </OvenInfo>
-        <CookieList readModalActive={setReadModal} ovId={ovid} />
+        <CookieList setReadCookie={setReadCookie} ovId={ovid} />
       </Container>
-      {modalActive && <PostModal active={setModalActive} />}
-      {readModal && <ReadModal active={setReadModal} />}
+      {modalActive && <PostModal ovid={ovid} active={setModalActive} />}
+      {readCookie !== null && <ReadModal active={setReadCookie} ckid={readCookie} />}
     </>
   );
 }

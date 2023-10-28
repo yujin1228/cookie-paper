@@ -20,8 +20,9 @@ authInstance.interceptors.request.use((config) => {
   if (!config.headers.Authorization) {
     config.headers = {
       ...config.headers,
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      Authorization: `Bearer ${localStorage.getItem('CPToken')}`,
     };
   }
+
   return config;
 });
