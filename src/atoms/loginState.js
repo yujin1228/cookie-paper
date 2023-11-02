@@ -5,11 +5,7 @@ export const LoginState = atom({
   default: false,
 });
 
-export const UserInfo = atom({
+export const userinfo = atom({
   key: 'user-infomaion',
-  default: {
-    usId: '',
-    usNickName: '',
-    usEmail: '',
-  },
+  default: { usId: null, usName: null, usOvId: null },
 });

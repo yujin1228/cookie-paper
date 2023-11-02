@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
+  max-width: 648px;
   position: absolute;
   top: 46%;
   left: 50%;

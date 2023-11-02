@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { ButtonBox, Container, ID, OvenImg, OvenInfo, Title } from 'components/userOven/oven/UserOven.style';
 import { ovens } from 'constant/imgImport';
 import { OvenButton } from 'components/common/Button.style';
@@ -9,13 +9,14 @@ import CookieList from 'components/userOven/oven/CookieList';
 import PostModal from 'components/userOven/cookieModal/PostModal';
 import ReadModal from 'components/userOven/cookieModal/ReadModal';
 import { MsgOpen } from 'atoms/msgOpenTimer';
+import { userinfo } from 'atoms/loginState';
 
 export default function UserOven({ id, name, oven, pri, ovid }) {
   const [isOpenMsg, setIsOpenMsg] = useRecoilState(MsgOpen);
   const [modalActive, setModalActive] = useState(false);
   const [readCookie, setReadCookie] = useState(null);
   const navigate = useNavigate();
-  const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
+  const userInfo = useRecoilValue(userinfo);
 
   const openCModal = () => {
     setModalActive(true);
@@ -28,7 +29,7 @@ export default function UserOven({ id, name, oven, pri, ovid }) {
         alert('클립보드에 링크가 복사되었어요.');
       });
     } catch (err) {
-      console.log(err);
+      alert('링크복사를 실패했어요. 다시 시도해주세요.');
     }
   };
 

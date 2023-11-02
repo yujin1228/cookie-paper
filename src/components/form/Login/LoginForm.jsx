@@ -4,7 +4,7 @@ import { Input } from 'components/form/Login/LoginForm.style';
 import { loginAPI } from 'api/login.api';
 import { useNavigate } from 'react-router';
 import { useSetRecoilState } from 'recoil';
-import { LoginState } from 'atoms/loginState';
+import { LoginState, userinfo } from 'atoms/loginState';
 
 export default function LoginForm() {
   //로그인 input 입력 값
@@ -12,6 +12,7 @@ export default function LoginForm() {
   const [userPw, setUserPw] = useState('');
   const [error, setError] = useState(false);
   const setIsLoggenIn = useSetRecoilState(LoginState);
+  const setUserInfo = useSetRecoilState(userinfo);
   const navigate = useNavigate();
 
   const submitLogin = (e) => {
@@ -20,9 +21,10 @@ export default function LoginForm() {
     promise
       .then((res) => {
         if (res !== 'fail') {
-          const userInfo = { usId: res.usId, usName: res.usNickname, usOvId: res.oven === null ? null : res.oven.ovId };
+          const userinfo = { usId: res.usId, usName: res.usNickname, usOvId: res.oven === null ? null : res.oven.ovId };
           localStorage.setItem('CPToken', res.token);
-          localStorage.setItem('CPUserInfo', JSON.stringify(userInfo));
+          localStorage.setItem('CPUserInfo', JSON.stringify(userinfo));
+          setUserInfo(userinfo);
           setIsLoggenIn(true);
 
           //오븐정보가 없다면 오븐생성 페이지로 이동

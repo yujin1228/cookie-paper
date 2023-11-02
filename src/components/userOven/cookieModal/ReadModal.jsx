@@ -12,8 +12,7 @@ export default function ReadModal({ active, ckid }) {
   });
 
   useEffect(() => {
-    const promise = cookieReadAPI(ckid);
-    promise
+    cookieReadAPI(ckid)
       .then((res) => {
         console.log(res);
         setCookieInfo({ ...cookieInfo, ckNickname: res.ckNickname, ckContent: res.ckContent, ckDesign: res.ckDesign, ckPrivateYn: res.ckPrivateYn });

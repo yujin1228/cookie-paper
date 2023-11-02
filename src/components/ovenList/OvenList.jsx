@@ -1,14 +1,14 @@
 import OvenItem from './OvenItem';
-import { Container, EmptyText, OvenBox, Title } from 'components/ovenList/OvenList.style';
+import { Container, EmptyText, OvenBox, ScrollBox, Title } from 'components/ovenList/OvenList.style';
 import { ovenListAPI } from 'api/oven.api';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { LoginState, UserInfo } from 'atoms/loginState';
+import { LoginState, userinfo } from 'atoms/loginState';
 
 export default function OvenList() {
   const [ovenList, setOvenList] = useState(null);
   const isLoggedin = useRecoilValue(LoginState);
-  const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
+  const userInfo = useRecoilValue(userinfo);
 
   useEffect(() => {
     const promise = ovenListAPI();
@@ -26,7 +26,6 @@ export default function OvenList() {
     getData();
   }, []);
 
-  console.log(ovenList);
   const listItem = () => {
     if (ovenList !== null && ovenList !== undefined) {
       return ovenList.map((item, index) => {
@@ -41,7 +40,9 @@ export default function OvenList() {
   return (
     <Container>
       <Title />
-      <OvenBox>{listItem()}</OvenBox>
+      <ScrollBox>
+        <OvenBox>{listItem()}</OvenBox>
+      </ScrollBox>
     </Container>
   );
 }

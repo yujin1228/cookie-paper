@@ -9,22 +9,16 @@ import { ovenInfoAPI } from 'api/oven.api';
 
 export default function UserOvenPage() {
   const { id } = useParams();
-  const [ovenInfo, setOvenInfo] = useState({
-    ovid: 0,
-    id: '',
-    name: '',
-    oven: 1,
-    pri: 0,
-  });
+  const [ovenInfo, setOvenInfo] = useState(null);
 
   useEffect(() => {
-    const promise = ovenInfoAPI(id);
-    const getData = () => {
-      promise.then((data) => {
+    ovenInfoAPI(id)
+      .then((data) => {
         setOvenInfo({ ...ovenInfo, ovid: data.ovId, id: data.usId, name: data.usNickname, oven: data.ovDesign, pri: data.ovPrivateYn });
+      })
+      .catch((err) => {
+        alert(err);
       });
-    };
-    getData();
   }, []);
 
   return (
@@ -35,7 +29,7 @@ export default function UserOvenPage() {
       <Body $startcolor="#ffcb89" $endcolor="#fec988">
         <Bg $back={ovenback}>
           <Header />
-          <UserOven id={ovenInfo.id} name={ovenInfo.name} oven={ovenInfo.oven} pri={ovenInfo.pri} ovid={ovenInfo.ovid} />
+          {ovenInfo !== null && <UserOven id={ovenInfo.id} name={ovenInfo.name} oven={ovenInfo.oven} pri={ovenInfo.pri} ovid={ovenInfo.ovid} />}
         </Bg>
       </Body>
     </>

@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Name, Oven, OvenId, OvenImg, OvenTitle } from 'components/ovenList/OvenItem.style';
 import { useRecoilValue } from 'recoil';
 import { MsgOpen } from 'atoms/msgOpenTimer';
+import { userinfo } from 'atoms/loginState';
 
 export default function OvenItem({ userid, name, oven, mine, pri }) {
   const isOpenMsg = useRecoilValue(MsgOpen);
-  const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
+  const userInfo = useRecoilValue(userinfo);
 
   let route = `../oven/${userid}`;
   const navigate = useNavigate();

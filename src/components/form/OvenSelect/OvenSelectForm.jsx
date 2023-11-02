@@ -3,6 +3,8 @@ import { ovens } from 'constant/imgImport';
 import { CustomButton, Form, H2, Img, Label, SelectBox, SelectItem, Input, Check } from 'components/form/OvenSelect/OvenSelectForm.style';
 import { useNavigate } from 'react-router';
 import { ovenSelectAPI } from 'api/oven.api';
+import { useRecoilValue } from 'recoil';
+import { userinfo } from 'atoms/loginState';
 
 export default function OvenSelect() {
   const [selectedOven, setSelectedOven] = useState(1);
@@ -11,7 +13,7 @@ export default function OvenSelect() {
   const ovenitems = Object.values(ovens);
   const ovenids = Object.keys(ovens);
 
-  const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
+  const userInfo = useRecoilValue(userinfo);
 
   //이미 오븐이 있을때 접근금지
   useEffect(() => {

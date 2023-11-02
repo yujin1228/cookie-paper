@@ -13,6 +13,15 @@ export const Container = styled.div`
   margin: 26px 120px;
 `;
 
+export const ScrollBox = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 export const Title = styled.div`
   width: 122px;
   height: 34px;

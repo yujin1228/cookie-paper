@@ -1,17 +1,20 @@
 import { cookieListAPI } from 'api/cookie.api';
 import { CookieBox, CookieImg, CookieItem, CookieName, Dimmed, OvenPen, PageButton, PageContainer, ToastText } from 'components/userOven/oven/CookieList.style';
 import { doughs, cookies } from 'constant/imgImport';
-import { useEffect, useRef, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useEffect, useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { MsgOpen } from 'atoms/msgOpenTimer';
+import { cookieUpdate } from 'atoms/cookieupdate';
+import { userinfo } from 'atoms/loginState';
 
 export default function CookieList({ setReadCookie, ovId }) {
   const isOpenMsg = useRecoilValue(MsgOpen);
   const [showToast, setShowToast] = useState(false);
-  const [cookieItems, setCookieItems] = useState([]);
+  const [cookieItems, setCookieItems] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
+  const userInfo = useRecoilValue(userinfo);
+  const [cookieListUpdate, setCookieListUpdate] = useRecoilState(cookieUpdate);
 
   useEffect(() => {
     if (showToast) {
@@ -27,7 +30,6 @@ export default function CookieList({ setReadCookie, ovId }) {
 
   const cookieClick = (e) => {
     if (isOpenMsg) {
-      console.log(e.target.name[2]);
       if (e.target.name[2] === '1') {
         userInfo.usOvId === ovId ? setReadCookie(e.target.name[0]) : setShowToast(true);
       } else if (e.target.name[2] === '0') {
@@ -39,17 +41,16 @@ export default function CookieList({ setReadCookie, ovId }) {
   };
 
   useEffect(() => {
-    const promise = cookieListAPI(ovId, page - 1);
-    promise
+    cookieListAPI(ovId, page - 1)
       .then((res) => {
-        console.log(res);
         setCookieItems(res.cookieDtoList);
         setTotalPage(res.totalPages);
+        setCookieListUpdate(false);
       })
       .catch((err) => {
         alert(err);
       });
-  }, [ovId, page]);
+  }, [ovId, page, cookieListUpdate]);
 
   const cookieitems = () => {
     if (cookieItems.length !== 0) {
@@ -64,8 +65,8 @@ export default function CookieList({ setReadCookie, ovId }) {
           </CookieItem>
         );
       });
-    } else {
-      return '';
+    } else if (cookieItems.length === 0) {
+      return <ToastText>아직 남겨진 쿠키가 없어요</ToastText>;
     }
   };
 
@@ -85,11 +86,11 @@ export default function CookieList({ setReadCookie, ovId }) {
     <>
       <OvenPen>
         {/* 쿠키리스트 영역 */}
-        <CookieBox>{cookieitems()}</CookieBox>
+        <CookieBox>{cookieItems !== null && cookieitems()}</CookieBox>
         {/* 페이지네이션 버튼 영역 */}
         <PageContainer $marginB="-20px">
           <PageButton direction="prev" onClick={prevPage} />
-          {page}/{totalPage}
+          {page}/{totalPage ? totalPage : 1}
           <PageButton direction="next" onClick={nextPage} />
         </PageContainer>
         <Dimmed $show={showToast}>

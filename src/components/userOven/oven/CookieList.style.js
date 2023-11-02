@@ -81,13 +81,15 @@ export const Dimmed = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 10;
 
-  display: ${(props) => (props.$show ? 'flex' : 'none')};
-  justify-content: center;
-  align-items: center;
+  display: ${(props) => (props.$show ? 'block' : 'none')};
   transition: display 0.5s;
 `;
 
 export const ToastText = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: fit-content;
   background-color: var(--white);
   border-radius: 8px;

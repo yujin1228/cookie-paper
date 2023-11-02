@@ -1,18 +1,18 @@
 import React from 'react';
 import { Container, Logo, ButtonBox, UserButtonBox, UserButton } from 'components/main/Main.style';
 import { Button } from 'components/common/Button.style';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { MsgOpen } from 'atoms/msgOpenTimer';
-import { LoginState } from 'atoms/loginState';
+import { LoginState, userinfo } from 'atoms/loginState';
 import { useNavigate } from 'react-router';
 
 export default function Main() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [isOpenMsg, setIsOpenMsg] = useRecoilState(MsgOpen);
+  const userInfo = useRecoilValue(userinfo);
   const navigate = useNavigate();
 
   const toMyOven = () => {
-    const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
     userInfo.usOvId ? navigate(`/oven/${userInfo.usId}`) : navigate('/ovenselect');
   };
 

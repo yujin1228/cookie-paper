@@ -16,6 +16,8 @@ import {
 } from 'components/userOven/cookieModal/CookieModal.style';
 import CookieSelect from './CookieSelect';
 import { cookieCreateAPI } from 'api/cookie.api';
+import { useSetRecoilState } from 'recoil';
+import { cookieUpdate } from 'atoms/cookieupdate';
 
 export default function PostModal({ active, ovid }) {
   const [name, setName] = useState('');
@@ -23,6 +25,7 @@ export default function PostModal({ active, ovid }) {
   const [message, setMessage] = useState('');
   const [textCount, setTextCount] = useState(0);
   const [selectedCookie, setSelectedCookie] = useState(1);
+  const setCookieListUpdate = useSetRecoilState(cookieUpdate);
 
   //쿠키이름 입력
   const onChangeName = (e) => {
@@ -62,6 +65,7 @@ export default function PostModal({ active, ovid }) {
           if (res === 'success') {
             alert('쿠키메시지를 남겼어요. 메시지는 11/11 자정 오븐주인에게 전달됩니다!');
             active(false);
+            setCookieListUpdate(true);
           } else if (res === 'fail') {
             alert('메시지 작성에 실패했어요. 다시 시도해주세요.');
           }
