@@ -21,7 +21,7 @@ export default function MainPage() {
         <title>쿠키페이퍼</title>
       </Helmet>
       <Body>
-        <Bg>
+        <Bg $home>
           {isShowModal && <OpenServiceModal />}
           <Main />
         </Bg>

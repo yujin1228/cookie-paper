@@ -7,10 +7,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   max-width: 648px;
-  position: absolute;
-  top: 46%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;
 
 export const Logo = styled.div`
