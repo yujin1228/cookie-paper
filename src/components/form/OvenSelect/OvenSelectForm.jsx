@@ -3,7 +3,7 @@ import { ovens } from 'constant/imgImport';
 import { CustomButton, Form, H2, Img, Label, SelectBox, SelectItem, Input, Check } from 'components/form/OvenSelect/OvenSelectForm.style';
 import { useNavigate } from 'react-router';
 import { ovenSelectAPI } from 'api/oven.api';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { userinfo } from 'atoms/loginState';
 import Loader from 'components/common/Loader/Loader';
 
@@ -14,7 +14,7 @@ export default function OvenSelect() {
   const navigate = useNavigate();
   const ovenitems = Object.values(ovens);
   const ovenids = Object.keys(ovens);
-  const userInfo = useRecoilValue(userinfo);
+  const [userInfo, setUserInfo] = useRecoilState(userinfo);
 
   //이미 오븐이 있을때 접근금지
   useEffect(() => {
@@ -56,6 +56,7 @@ export default function OvenSelect() {
         if (res !== 'fail') {
           const newUserInfo = { ...userInfo, usOvId: res.ovId };
           localStorage.setItem('CPUserInfo', JSON.stringify(newUserInfo));
+          setUserInfo({ ...userInfo, usOvId: res.ovId });
           navigate(`/oven/${userInfo.usId}`);
         } else if (res === 'fail') {
           alert('오븐만들기에 실패했습니다. 다시 시도해주세요.');
