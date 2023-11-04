@@ -61,7 +61,7 @@ export default function CookieList({ setReadCookie, ovId }) {
             <CookieImg $ckimg={isOpenMsg ? cookies[item.ckDesign] : doughs[item.ckDesign]} name={[item.ckId, item.ckPrivateYn]} onClick={cookieClick} />
             <CookieName>
               {item.ckNickname}
-              {item.ckPrivateYn && <span>🔒</span>}
+              {item.ckPrivateYn ? <span>🔒</span> : ''}
             </CookieName>
           </CookieItem>
         );
