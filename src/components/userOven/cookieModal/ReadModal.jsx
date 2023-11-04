@@ -36,16 +36,16 @@ export default function ReadModal({ active, ckid }) {
           <Loader />
         ) : (
           <>
-            <Box flexgap="30px">
-              <Box flexdir="column" flexgap="24px">
+            <Box $flexgap="30px">
+              <Box $flexdir="column" $flexgap="24px">
                 <Comment>💌 메세지가 도착했어요</Comment>
                 <CookieImg $ckimg={cookies[cookieInfo.ckDesign]} />
-                <Box boxw="100%" flexdir="column" flexgap="4px">
-                  <P fontw="700">From.</P>
+                <Box $boxw="100%" $flexdir="column" $flexgap="4px">
+                  <P $fontw="700">From.</P>
                   <P>{cookieInfo.ckNickname}</P>
                 </Box>
               </Box>
-              <TextBox boxw="604px" boxh="488px" $scroll>
+              <TextBox $boxw="604px" $boxh="488px" $scroll>
                 {cookieInfo.ckContent}
               </TextBox>
             </Box>

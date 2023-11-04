@@ -1,7 +1,7 @@
 import { cookieListAPI } from 'api/cookie.api';
 import { CookieBox, CookieImg, CookieItem, CookieName, Dimmed, OvenPen, PageButton, PageContainer, ToastText } from 'components/userOven/oven/CookieList.style';
 import { doughs, cookies } from 'constant/imgImport';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { MsgOpen } from 'atoms/msgOpenTimer';
 import { cookieUpdate } from 'atoms/cookieupdate';
@@ -29,12 +29,13 @@ export default function CookieList({ setReadCookie, ovId }) {
     }
   }, [showToast]);
 
-  const cookieClick = (e) => {
+  const cookieClick = (id, pri) => {
     if (isOpenMsg) {
-      if (e.target.name[2] === '1') {
-        userInfo.usOvId === ovId ? setReadCookie(e.target.name[0]) : setShowToast(true);
-      } else if (e.target.name[2] === '0') {
-        setReadCookie(e.target.name[0]);
+      console.log(id, pri);
+      if (pri === 1) {
+        userInfo.usOvId === ovId ? setReadCookie(id) : setShowToast(true);
+      } else if (pri === 0) {
+        setReadCookie(id);
       }
     } else {
       setShowToast(true);
@@ -58,7 +59,7 @@ export default function CookieList({ setReadCookie, ovId }) {
       return cookieItems.map((item) => {
         return (
           <CookieItem key={item.ckId}>
-            <CookieImg $ckimg={isOpenMsg ? cookies[item.ckDesign] : doughs[item.ckDesign]} name={[item.ckId, item.ckPrivateYn]} onClick={cookieClick} />
+            <CookieImg $ckimg={isOpenMsg ? cookies[item.ckDesign] : doughs[item.ckDesign]} onClick={() => cookieClick(item.ckId, item.ckPrivateYn)} />
             <CookieName>
               {item.ckNickname}
               {item.ckPrivateYn ? <span>🔒</span> : ''}

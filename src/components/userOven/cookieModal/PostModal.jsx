@@ -85,7 +85,7 @@ export default function PostModal({ active, ovid }) {
         <Title>쿠키 남기기</Title>
         <CookieSelect selectedCookie={selectedCookie} setSelectedCookie={setSelectedCookie} />
         <Box>
-          <Box flexdir="column" flexgap="8px">
+          <Box $flexdir="column" $flexgap="8px">
             <From>From.</From>
             <NameInput placeholder="영어, 한글 최대 8글자" maxLength={8} onChange={onChangeName} required />
             <label>

@@ -33,8 +33,8 @@ export const Title = styled.h2`
 `;
 
 export const TextBox = styled.div`
-  width: ${(props) => props.boxw || '660px'};
-  height: ${(props) => props.boxh || '368px'};
+  width: ${(props) => props.$boxw || '660px'};
+  height: ${(props) => props.$boxh || '368px'};
   border-radius: 16px;
   background-color: var(--orange-100);
   padding: 26px 30px;
@@ -89,10 +89,10 @@ export const From = styled.label`
 `;
 
 export const Box = styled.div`
-  width: ${(props) => props.boxw || 'fit-content'};
+  width: ${(props) => props.$boxw || 'fit-content'};
   display: flex;
-  flex-direction: ${(props) => props.flexdir || 'row'};
-  gap: ${(props) => props.flexgap || '28px'};
+  flex-direction: ${(props) => props.$flexdir || 'row'};
+  gap: ${(props) => props.$flexgap || '28px'};
 `;
 
 /*====== 리드쿠키메시지모달 ======*/
@@ -118,7 +118,7 @@ export const CookieImg = styled.div`
 export const P = styled.p`
   font-size: 24px;
   line-height: 33px;
-  font-weight: ${(props) => props.fontw || 400};
+  font-weight: ${(props) => props.$fontw || 400};
   text-align: center;
 `;
 
