@@ -5,14 +5,15 @@ import { useNavigate } from 'react-router';
 import { ovenSelectAPI } from 'api/oven.api';
 import { useRecoilValue } from 'recoil';
 import { userinfo } from 'atoms/loginState';
+import Loader from 'components/common/Loader/Loader';
 
 export default function OvenSelect() {
   const [selectedOven, setSelectedOven] = useState(1);
   const [privateOven, setPrivateOven] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const ovenitems = Object.values(ovens);
   const ovenids = Object.keys(ovens);
-
   const userInfo = useRecoilValue(userinfo);
 
   //이미 오븐이 있을때 접근금지
@@ -47,14 +48,13 @@ export default function OvenSelect() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const ovPrivate = privateOven ? 1 : 0;
-    const promise = ovenSelectAPI(userInfo.usId, selectedOven, ovPrivate);
-    promise
+    ovenSelectAPI(userInfo.usId, selectedOven, ovPrivate)
       .then((res) => {
-        console.log(res);
+        setLoading(false);
         if (res !== 'fail') {
           const newUserInfo = { ...userInfo, usOvId: res.ovId };
-          console.log(userInfo);
           localStorage.setItem('CPUserInfo', JSON.stringify(newUserInfo));
           navigate(`/oven/${userInfo.usId}`);
         } else if (res === 'fail') {
@@ -62,7 +62,8 @@ export default function OvenSelect() {
         }
       })
       .catch((err) => {
-        alert(err);
+        setLoading(false);
+        alert('오븐만들기에 실패했습니다. 잠시 후 다시 시도해주세요.');
       });
   };
 
@@ -76,6 +77,7 @@ export default function OvenSelect() {
             <Input type="checkbox" checked={privateOven} onChange={handleCheckBox} />
             <Check>내 오븐을 비공개로 설정하기</Check>
           </Label>
+          {loading && <Loader />}
         </SelectBox>
         <CustomButton $buttonActive={true}>내 오븐 만들기</CustomButton>
       </Form>

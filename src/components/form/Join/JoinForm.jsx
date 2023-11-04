@@ -7,6 +7,7 @@ import PassCodeTimer from 'components/form/PassCodeTimer/PassCodeTimer';
 import { codeTime, timerActive } from 'atoms/passCodeTimer';
 import { emailDuplicateAPI, idDuplicateAPI, joinAPI } from 'api/join.api';
 import { useNavigate } from 'react-router';
+import Loader from 'components/common/Loader/Loader';
 
 export default function JoinForm() {
   //회원가입 관련 상태
@@ -19,6 +20,7 @@ export default function JoinForm() {
   const setTime = useSetRecoilState(codeTime);
   const setActiveTimer = useSetRecoilState(timerActive);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   //useForm()
   const {
@@ -32,9 +34,10 @@ export default function JoinForm() {
   const onSubmit = (data) => {
     if (isId && isEmail) {
       //회원가입 데이터 전송 api
-      const promise = joinAPI(data);
-      promise
+      setLoading(true);
+      joinAPI(data)
         .then((res) => {
+          setLoading(false);
           if (res === 'success') {
             navigate('/login');
           } else if (res === 'fail') {
@@ -42,6 +45,7 @@ export default function JoinForm() {
           }
         })
         .catch((err) => {
+          setLoading(false);
           alert(err);
         });
     } else {
@@ -113,6 +117,7 @@ export default function JoinForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+      {loading && <Loader />}
       <FormGroup>
         <Label htmlFor="userId">아이디</Label>
         <InputBox>

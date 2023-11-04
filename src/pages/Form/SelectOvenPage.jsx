@@ -12,13 +12,16 @@ export default function SelectOvenPage() {
   const isLoggedIn = useRecoilValue(LoginState);
   const isOpenMsg = useRecoilValue(MsgOpen);
   const navigate = useNavigate();
-  if (isOpenMsg === true) {
-    alert('메시지가 공개되어 오븐생성이 불가능합니다.');
-    navigate('/');
-  } else if (isLoggedIn === false) {
-    alert('회원만 오븐을 생성할 수 있습니다. 로그인 또는 회원가입 해주세요');
-    navigate('/');
-  }
+
+  setTimeout(() => {
+    if (isOpenMsg === true) {
+      alert('메시지가 공개되어 오븐생성이 불가능합니다.');
+      navigate('/');
+    } else if (isLoggedIn === false) {
+      alert('회원만 오븐을 생성할 수 있습니다. 로그인 또는 회원가입 해주세요');
+      navigate('/');
+    }
+  }, 3000);
 
   return (
     <>

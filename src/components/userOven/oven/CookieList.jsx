@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { MsgOpen } from 'atoms/msgOpenTimer';
 import { cookieUpdate } from 'atoms/cookieupdate';
 import { userinfo } from 'atoms/loginState';
+import Loader from 'components/common/Loader/Loader';
 
 export default function CookieList({ setReadCookie, ovId }) {
   const isOpenMsg = useRecoilValue(MsgOpen);
@@ -86,7 +87,7 @@ export default function CookieList({ setReadCookie, ovId }) {
     <>
       <OvenPen>
         {/* 쿠키리스트 영역 */}
-        <CookieBox>{cookieItems !== null && cookieitems()}</CookieBox>
+        <CookieBox>{cookieItems !== null ? cookieitems() : <Loader />}</CookieBox>
         {/* 페이지네이션 버튼 영역 */}
         <PageContainer $marginB="-20px">
           <PageButton direction="prev" onClick={prevPage} />

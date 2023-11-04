@@ -10,7 +10,6 @@ export default function useCodeTimer(time, activeTimer, setTime, setActiveTimer)
       }, 1000);
     } else if (time === 0) {
       clearInterval(interval);
-      console.log('타이머가 종료되었습니다.');
       setActiveTimer(false);
       setTime(600); // 10분으로 리셋
     }
@@ -18,5 +17,5 @@ export default function useCodeTimer(time, activeTimer, setTime, setActiveTimer)
     return () => {
       clearInterval(interval);
     };
-  }, [time, activeTimer]);
+  }, [time, activeTimer, setTime, setActiveTimer]);
 }

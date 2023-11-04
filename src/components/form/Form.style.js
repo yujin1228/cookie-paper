@@ -10,6 +10,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${(props) => props.$gap || '20px'};
+  position: relative;
 `;
 
 export const FormTitle = styled.h1`

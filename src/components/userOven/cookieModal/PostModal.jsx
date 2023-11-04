@@ -18,6 +18,7 @@ import CookieSelect from './CookieSelect';
 import { cookieCreateAPI } from 'api/cookie.api';
 import { useSetRecoilState } from 'recoil';
 import { cookieUpdate } from 'atoms/cookieupdate';
+import Loader from 'components/common/Loader/Loader';
 
 export default function PostModal({ active, ovid }) {
   const [name, setName] = useState('');
@@ -26,6 +27,7 @@ export default function PostModal({ active, ovid }) {
   const [textCount, setTextCount] = useState(0);
   const [selectedCookie, setSelectedCookie] = useState(1);
   const setCookieListUpdate = useSetRecoilState(cookieUpdate);
+  const [loading, setLoading] = useState(false);
 
   //쿠키이름 입력
   const onChangeName = (e) => {
@@ -58,10 +60,10 @@ export default function PostModal({ active, ovid }) {
         ckDesign: parseInt(selectedCookie),
         ckPrivateYn: cookiePri ? 1 : 0,
       };
-      console.log(cookieInfo);
-      const promise = cookieCreateAPI(cookieInfo);
-      promise
+      setLoading(true);
+      cookieCreateAPI(cookieInfo)
         .then((res) => {
+          setLoading(false);
           if (res === 'success') {
             alert('쿠키메시지를 남겼어요. 메시지는 11/11 자정 오븐주인에게 전달됩니다!');
             active(false);
@@ -71,7 +73,8 @@ export default function PostModal({ active, ovid }) {
           }
         })
         .catch((err) => {
-          alert(err);
+          setLoading(false);
+          alert('메시지 작성에 실패했어요. 잠시 후 다시 시도해주세요.');
         });
     }
   };
@@ -101,6 +104,7 @@ export default function PostModal({ active, ovid }) {
           </TextBox>
         </Box>
         <CloseButton type="button" onClick={onClickClose} />
+        {loading && <Loader />}
       </Container>
     </Dimmed>
   );

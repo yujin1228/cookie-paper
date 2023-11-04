@@ -6,6 +6,7 @@ import Header from 'components/common/Header/Header';
 import { Bg, Body } from 'components/common/BackgroundImg.style';
 import ovenback from 'assets/img/back_oven.png';
 import { ovenInfoAPI } from 'api/oven.api';
+import Loader from 'components/common/Loader/Loader';
 
 export default function UserOvenPage() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ export default function UserOvenPage() {
       .catch((err) => {
         alert(err);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -29,7 +30,7 @@ export default function UserOvenPage() {
       <Body $startcolor="#ffcb89" $endcolor="#fec988">
         <Bg $back={ovenback}>
           <Header />
-          {ovenInfo !== null && <UserOven id={ovenInfo.id} name={ovenInfo.name} oven={ovenInfo.oven} pri={ovenInfo.pri} ovid={ovenInfo.ovid} />}
+          {ovenInfo !== null ? <UserOven id={ovenInfo.id} name={ovenInfo.name} oven={ovenInfo.oven} pri={ovenInfo.pri} ovid={ovenInfo.ovid} /> : <Loader />}
         </Bg>
       </Body>
     </>

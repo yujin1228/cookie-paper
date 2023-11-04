@@ -24,6 +24,7 @@ export const SelectBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 44px 129px;
+  position: relative;
 `;
 
 export const Img = styled.img`

@@ -2,24 +2,28 @@ import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'components/form/Form.style';
 import styled from 'styled-components';
 import { instance } from 'api/axiosInstance';
+import Loader from 'components/common/Loader/Loader';
 
 export default function FindIdForm() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(null);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const onChangeEmail = (e) => {
     //이메일 입력 값
     setEmail(e.target.value);
   };
 
+  //이메일 폼 제출
   const submitEmail = (e) => {
-    //이메일 폼 제출
     e.preventDefault();
+    setLoading(true);
     setError(true);
     setMessage('메일을 전송중입니다...');
     const promise = instance.post('user/findId', { usEmail: email });
     promise
       .then((res) => {
+        setLoading(false);
         if (res.data !== 'fail') {
           setError(true);
           setMessage('입력해주신 이메일로 아이디가 전송되었습니다.');
@@ -29,12 +33,14 @@ export default function FindIdForm() {
         }
       })
       .catch((error) => {
+        setLoading(false);
         alert('error');
       });
   };
 
   return (
     <Form onSubmit={submitEmail}>
+      {loading && <Loader />}
       <FormGroup>
         <Label htmlFor="userEmail">이메일</Label>
         <Input onChange={onChangeEmail} placeholder="이메일을 입력해주세요" type="email" required />

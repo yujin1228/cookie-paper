@@ -5,9 +5,9 @@ import { Form, Button, Label, InputBox, Input, InputButton, FormGroup, FormMessa
 import { RegExp, invalidText } from 'constant/validation';
 import PassCodeTimer from 'components/form/PassCodeTimer/PassCodeTimer';
 import { codeTime, timerActive } from 'atoms/passCodeTimer';
-import { instance } from 'api/axiosInstance';
 import { pwFindAPI, pwUpdateAPI } from 'api/find.api';
 import { useNavigate } from 'react-router';
+import Loader from 'components/common/Loader/Loader';
 
 export default function FindPwForm() {
   const [isEmail, setIsEmail] = useState('');
@@ -17,6 +17,7 @@ export default function FindPwForm() {
   const setActiveTimer = useSetRecoilState(timerActive);
   const passcode = useRef('');
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   //useForm()
   const {
@@ -27,9 +28,10 @@ export default function FindPwForm() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    const promise = pwUpdateAPI(data);
-    promise
+    setLoading(true);
+    pwUpdateAPI(data)
       .then((res) => {
+        setLoading(false);
         if (res === 'success') {
           alert('비밀번호 재설정이 완료 되었습니다.');
           navigate('/login');
@@ -38,7 +40,8 @@ export default function FindPwForm() {
         }
       })
       .catch((err) => {
-        alert(err);
+        setLoading(false);
+        alert('비밀번호 재설정에 실패했습니다. 다시 시도해주세요.');
       });
   };
 
@@ -81,6 +84,7 @@ export default function FindPwForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+      {loading && <Loader />}
       <FormGroup>
         <Label htmlFor="userId">아이디</Label>
         <Input
