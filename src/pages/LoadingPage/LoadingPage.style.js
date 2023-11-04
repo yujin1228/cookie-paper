@@ -54,7 +54,7 @@ export const rotate3 = keyframes`
 
 export const Img = styled.img`
   width: 80px;
-  animation: ${(props) => props.$ani} 2500ms linear infinite;
+  animation: ${(props) => props.$ani} 2000ms linear infinite;
 
   Img + & {
     margin-left: 24px;
