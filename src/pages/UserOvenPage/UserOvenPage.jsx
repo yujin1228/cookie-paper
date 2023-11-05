@@ -18,13 +18,6 @@ export default function UserOvenPage() {
   const isOpenMsg = useRecoilValue(MsgOpen);
   const navigate = useNavigate();
 
-  if (isOpenMsg) {
-    if (userInfo.usId !== id) {
-      alert('비공개 오븐은 주인만 열 수 있어요!');
-      navigate('/ovenlist');
-    }
-  }
-
   useEffect(() => {
     ovenInfoAPI(id)
       .then((data) => {

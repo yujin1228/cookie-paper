@@ -18,6 +18,15 @@ export default function UserOven({ id, name, oven, pri, ovid }) {
   const navigate = useNavigate();
   const userInfo = useRecoilValue(userinfo);
 
+  if (isOpenMsg) {
+    if (pri !== 0) {
+      if (userInfo.usId !== id) {
+        alert('비공개 오븐은 주인만 열 수 있어요!');
+        navigate('/ovenlist');
+      }
+    }
+  }
+
   const openCModal = () => {
     setModalActive(true);
   };

@@ -46,7 +46,7 @@ export default function JoinForm() {
         })
         .catch((err) => {
           setLoading(false);
-          alert(err);
+          alert('회원가입에 실패했습니다. 다시 시도해주세요.');
         });
     } else {
       if (!isId) {
