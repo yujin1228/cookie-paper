@@ -11,6 +11,25 @@ export default function FloatingButton() {
   const location = useLocation().pathname;
   const navigate = useNavigate();
 
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const resizeListener = () => {
+      setInnerWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', resizeListener);
+  });
+
+  const size = () => {
+    if (innerWidth < 480) {
+      return -68;
+    } else if (innerWidth < 768) {
+      return -75;
+    } else {
+      return -88;
+    }
+  };
+
   const toMyOven = () => {
     const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
     userInfo.usOvId ? navigate(`/oven/${userInfo.usId}`) : navigate('/ovenselect');
@@ -32,11 +51,11 @@ export default function FloatingButton() {
 
   return (
     <Container>
-      <SubButton to="/" $img={floatIcon.main} $toggle={toggle} $transy="-352px" />
+      <SubButton to="/" $img={floatIcon.main} $toggle={toggle} $transy={size() * 4} />
       {isLoggedIn ? ( //로그인여부에 따른 분기처리
-        <SubButton as="button" onClick={toMyOven} $img={floatIcon.myoven} $toggle={toggle} $transy="-264px" />
+        <SubButton as="button" onClick={toMyOven} $img={floatIcon.myoven} $toggle={toggle} $transy={size() * 3} />
       ) : (
-        <SubButton to="/ovenlist" $img={floatIcon.ovenlist} $toggle={toggle} $transy="-264px" />
+        <SubButton to="/ovenlist" $img={floatIcon.ovenlist} $toggle={toggle} $transy={size() * 3} />
       )}
       <SubButton
         as="a"
@@ -44,12 +63,12 @@ export default function FloatingButton() {
         target="_blank"
         $img={floatIcon.guide}
         $toggle={toggle}
-        $transy="-176px"
+        $transy={size() * 2}
       />
       {isLoggedIn ? ( //로그인여부에 따른 분기처리
-        <SubButton as="button" onClick={handleLoggedOut} $img={floatIcon.logout} $toggle={toggle} $transy="-88px" />
+        <SubButton as="button" onClick={handleLoggedOut} $img={floatIcon.logout} $toggle={toggle} $transy={size() * 1} />
       ) : (
-        <SubButton to="/login" $img={floatIcon.login} $toggle={toggle} $transy="-88px" />
+        <SubButton to="/login" $img={floatIcon.login} $toggle={toggle} $transy={size() * 1} />
       )}
       <Button onClick={clickToggle} $img={floatIcon.cookie} $toggle={toggle} />
     </Container>

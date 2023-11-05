@@ -26,6 +26,14 @@ export const Bg = styled.div`
   padding-bottom: 30px;
 
   ${(props) => props.$home && centerStyle}
+
+  @media screen and (max-width: 768px) {
+    background-position: 100% 0%;
+  }
+
+  @media screen and (max-width: 480px) {
+    background-position: 100% 0%;
+  }
 `;
 
 export const Dimmed = styled.div`

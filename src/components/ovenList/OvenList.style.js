@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import title from 'assets/img/oven-list-title.png';
 
 export const Container = styled.div`
-  max-width: 1440px;
+  max-width: 1200px;
   min-width: 830px;
   height: 673px;
   background-color: var(--orange-300);
@@ -10,7 +10,26 @@ export const Container = styled.div`
   padding: 32px 60px;
   font-family: var(--main-font);
   position: relative;
-  margin: 26px 120px;
+  margin: 26px auto;
+
+  @media screen and (max-width: 1200px) {
+    max-width: 1000px;
+    min-width: 800px;
+    padding: 32px 50px;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 700px;
+    min-width: 400px;
+    padding: 32px 35px;
+  }
+
+  @media screen and (max-width: 480px) {
+    max-width: 370px;
+    min-width: 330px;
+    height: 620px;
+    padding: 28px 30px;
+  }
 `;
 
 export const ScrollBox = styled.div`
@@ -42,6 +61,16 @@ export const OvenBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px 53px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 45px;
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 38px;
+  }
 `;
 
 export const EmptyText = styled.div`

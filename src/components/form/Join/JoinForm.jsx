@@ -160,7 +160,7 @@ export default function JoinForm() {
         <Input
           id="userName"
           type="text"
-          placeholder="영어, 한글 최대 5글자"
+          placeholder="영문/한글 최대 5글자"
           {...register('username', {
             required: '필수 입력 정보입니다',
             pattern: {

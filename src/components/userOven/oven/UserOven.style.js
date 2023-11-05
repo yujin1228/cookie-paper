@@ -5,6 +5,16 @@ export const Container = styled.div`
   margin: 26px auto;
   display: flex;
   gap: 25px;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const OvenInfo = styled.div`

@@ -29,6 +29,14 @@ export const Oven = styled.div`
 
 export const OvenTitle = styled.h2`
   line-height: 22px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 
 export const Name = styled.span`
@@ -49,4 +57,13 @@ export const OvenImg = styled.img`
   object-position: center;
   margin: 0 10px 4px 10px;
   vertical-align: bottom;
+
+  @media screen and (max-width: 768px) {
+    height: 100px;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 80px;
+    margin: 0;
+  }
 `;

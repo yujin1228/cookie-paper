@@ -53,8 +53,8 @@ export default function LoginForm() {
   return (
     <Form onSubmit={submitLogin} $gap="16px">
       {loading && <Loader />}
-      <Input id="userId" onChange={(e) => setUserId(e.target.value)} placeholder="ID" type="text" required />
-      <Input id="userPw" onChange={(e) => setUserPw(e.target.value)} placeholder="Password" type="password" required />
+      <Input id="userId" onChange={(e) => setUserId(e.target.value)} placeholder="아이디" type="text" required />
+      <Input id="userPw" onChange={(e) => setUserPw(e.target.value)} placeholder="비밀번호" type="password" required />
       {error && <FormMessage $mtop="-8px">아이디 또는 비밀번호가 옳지 않습니다</FormMessage>}
       <Button $buttonActive="active">로그인</Button>
     </Form>

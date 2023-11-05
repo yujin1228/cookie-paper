@@ -87,7 +87,7 @@ export default function PostModal({ active, ovid, ovpri }) {
         <Box>
           <Box $flexdir="column" $flexgap="8px">
             <From>From.</From>
-            <NameInput placeholder="영어, 한글 최대 8글자" maxLength={8} onChange={onChangeName} required />
+            <NameInput placeholder="최대 8글자" maxLength={8} onChange={onChangeName} required />
             <label>
               <Input type="checkbox" checked={ovpri ? true : cookiePri} onChange={handleCheckBox} disabled={ovpri ? true : false} />
               <Check size="12px" lineh="16px" num="2">

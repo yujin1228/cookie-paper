@@ -16,6 +16,15 @@ export const Logo = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 66px;
+
+  @media screen and (max-width: 768px) {
+    width: 500px;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 350px;
+    height: 107px;
+  }
 `;
 
 export const ButtonBox = styled.div`

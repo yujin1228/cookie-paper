@@ -7,6 +7,14 @@ export const Container = styled.div`
   right: 0;
   transform: translate(-80px, -94px);
   z-index: 100;
+
+  @media screen and (max-width: 768px) {
+    transform: translate(-50px, -54px);
+  }
+
+  @media screen and (max-width: 480px) {
+    transform: translate(-40px, -40px);
+  }
 `;
 
 export const Button = styled.button`
@@ -29,6 +37,26 @@ export const Button = styled.button`
     background-size: cover;
     margin: 0 auto;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+
+    &::after {
+      width: 48px;
+      height: 40px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 55px;
+    height: 55px;
+
+    &::after {
+      width: 44px;
+      height: 37px;
+    }
+  }
 `;
 
 export const SubButton = styled(Link)`
@@ -38,7 +66,7 @@ export const SubButton = styled(Link)`
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translateY(${(props) => (props.$toggle ? props.$transy : 0)});
+  transform: translateY(${(props) => (props.$toggle ? props.$transy + 'px' : 0)});
 
   border-radius: 50%;
   background-color: var(--orange-300);
@@ -57,5 +85,25 @@ export const SubButton = styled(Link)`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+
+    &::after {
+      width: 45px;
+      height: 44px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 55px;
+    height: 55px;
+
+    &::after {
+      width: 40px;
+      height: 39px;
+    }
   }
 `;
