@@ -20,7 +20,7 @@ import { useSetRecoilState } from 'recoil';
 import { cookieUpdate } from 'atoms/cookieupdate';
 import Loader from 'components/common/Loader/Loader';
 
-export default function PostModal({ active, ovid }) {
+export default function PostModal({ active, ovid, ovpri }) {
   const [name, setName] = useState('');
   const [cookiePri, setCookitPri] = useState(false);
   const [message, setMessage] = useState('');
@@ -89,7 +89,7 @@ export default function PostModal({ active, ovid }) {
             <From>From.</From>
             <NameInput placeholder="영어, 한글 최대 8글자" maxLength={8} onChange={onChangeName} required />
             <label>
-              <Input type="checkbox" checked={cookiePri} onChange={handleCheckBox} />
+              <Input type="checkbox" checked={ovpri ? true : cookiePri} onChange={handleCheckBox} disabled={ovpri ? true : false} />
               <Check size="12px" lineh="16px" num="2">
                 오븐 주인에게만 보여줄래요
               </Check>

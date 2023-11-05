@@ -50,10 +50,8 @@ export default function JoinForm() {
         });
     } else {
       if (!isId) {
+        setIsId(false);
         setIdText('아이디 중복확인이 필요합니다');
-      }
-      if (!isEmail) {
-        setEmailText('이메일 중복확인이 필요합니다');
       }
     }
   };

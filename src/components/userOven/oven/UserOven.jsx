@@ -59,7 +59,7 @@ export default function UserOven({ id, name, oven, pri, ovid }) {
         </OvenInfo>
         <CookieList setReadCookie={setReadCookie} ovId={ovid} />
       </Container>
-      {modalActive && <PostModal ovid={ovid} active={setModalActive} />}
+      {modalActive && <PostModal ovid={ovid} ovpri={pri} active={setModalActive} />}
       {readCookie !== null && <ReadModal active={setReadCookie} ckid={readCookie} />}
     </>
   );

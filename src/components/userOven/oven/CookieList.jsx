@@ -1,7 +1,7 @@
 import { cookieListAPI } from 'api/cookie.api';
 import { CookieBox, CookieImg, CookieItem, CookieName, Dimmed, OvenPen, PageButton, PageContainer, ToastText } from 'components/userOven/oven/CookieList.style';
 import { doughs, cookies } from 'constant/imgImport';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { MsgOpen } from 'atoms/msgOpenTimer';
 import { cookieUpdate } from 'atoms/cookieupdate';
@@ -31,7 +31,6 @@ export default function CookieList({ setReadCookie, ovId }) {
 
   const cookieClick = (id, pri) => {
     if (isOpenMsg) {
-      console.log(id, pri);
       if (pri === 1) {
         userInfo.usOvId === ovId ? setReadCookie(id) : setShowToast(true);
       } else if (pri === 0) {
