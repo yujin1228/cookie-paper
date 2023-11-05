@@ -32,5 +32,11 @@ export const OvenButton = styled.button`
   font-weight: 700;
   line-height: 27px;
 
-  margin-top: ${(props) => props.mtop || '0'};
+  margin-top: ${(props) => props.$mtop || '0'};
+
+  &:disabled {
+    background-color: var(--gray-700);
+    color: var(--gray-400);
+    cursor: not-allowed;
+  }
 `;

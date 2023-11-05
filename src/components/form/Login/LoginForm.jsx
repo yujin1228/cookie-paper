@@ -22,6 +22,7 @@ export default function LoginForm() {
     setLoading(true);
     loginAPI(userId, userPw)
       .then((res) => {
+        console.log(res);
         setLoading(false);
         if (res !== 'fail') {
           const userinfo = { usId: res.usId, usName: res.usNickname, usOvId: res.oven === null ? null : res.oven.ovId };

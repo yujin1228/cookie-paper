@@ -39,6 +39,7 @@ export default function JoinForm() {
         .then((res) => {
           setLoading(false);
           if (res === 'success') {
+            alert('환영합니다! 로그인 후 나만의 오븐을 만들어보세요!');
             navigate('/login');
           } else if (res === 'fail') {
             alert('회원가입에 실패했습니다. 다시 시도해주세요.');
@@ -52,6 +53,9 @@ export default function JoinForm() {
       if (!isId) {
         setIsId(false);
         setIdText('아이디 중복확인이 필요합니다');
+      } else if (!isEmail) {
+        setIsEmail(false);
+        setEmailText('이메일 인증이 필요합니다');
       }
     }
   };
@@ -61,8 +65,7 @@ export default function JoinForm() {
     const result = await trigger('userid');
     if (result) {
       const userid = getValues('userid');
-      const promise = idDuplicateAPI(userid);
-      promise
+      idDuplicateAPI(userid)
         .then((res) => {
           if (res === 'ok') {
             setIsId(true);
@@ -117,13 +120,13 @@ export default function JoinForm() {
     <Form onSubmit={handleSubmit(onSubmit)}>
       {loading && <Loader />}
       <FormGroup>
-        <Label htmlFor="userId">아이디</Label>
+        <Label htmlFor="usId">아이디</Label>
         <InputBox>
           <Input
-            id="userId"
+            id="usId"
+            autoComplete="usId"
             type="text"
             placeholder="영문/숫자 조합 5-20자"
-            readOnly={isId}
             {...register('userid', {
               required: '필수 입력 정보입니다',
               pattern: {
@@ -131,6 +134,9 @@ export default function JoinForm() {
                 message: invalidText.id,
               },
             })}
+            onChange={(e) => {
+              setIsId(null);
+            }}
           />
           <InputButton type="button" onClick={duplicationId}>
             중복확인
@@ -178,7 +184,6 @@ export default function JoinForm() {
             id="userEmail"
             type="email"
             placeholder="이메일을 입력해주세요"
-            readOnly={isEmail}
             {...register('useremail', {
               required: '필수 입력 정보입니다',
               pattern: {
@@ -186,6 +191,9 @@ export default function JoinForm() {
                 message: invalidText.email,
               },
             })}
+            onChange={(e) => {
+              setIsEmail(null);
+            }}
           />
           <InputButton type="button" onClick={duplicationEmail}>
             인증번호 발송

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router';
 export default function Main() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [isOpenMsg, setIsOpenMsg] = useRecoilState(MsgOpen);
-  const userInfo = useRecoilValue(userinfo);
+  const [userInfo, setUserInfo] = useRecoilState(userinfo);
   const navigate = useNavigate();
 
   const toMyOven = () => {
@@ -19,6 +19,7 @@ export default function Main() {
   const handleLoggedOut = () => {
     localStorage.removeItem('CPToken');
     localStorage.removeItem('CPUserInfo');
+    setUserInfo({ usId: null, usName: null, usOvId: null });
     setIsLoggedIn(false);
   };
 

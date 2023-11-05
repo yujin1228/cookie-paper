@@ -89,12 +89,12 @@ export default function PostModal({ active, ovid, ovpri }) {
             <From>From.</From>
             <NameInput placeholder="최대 8글자" maxLength={8} onChange={onChangeName} required />
             <label>
-              <Input type="checkbox" checked={ovpri ? true : cookiePri} onChange={handleCheckBox} disabled={ovpri ? true : false} />
-              <Check size="12px" lineh="16px" num="2">
-                오븐 주인에게만 보여줄래요
+              <Input type="checkbox" checked={ovpri ? false : cookiePri} onChange={handleCheckBox} disabled={ovpri ? true : false} />
+              <Check size="12px" $lineh="16px" $ovpri={ovpri}>
+                {ovpri ? '비공개오븐에 남겨지는 쿠키는 모두 비공개입니다' : '오븐 주인에게만 보여줄래요'}
               </Check>
             </label>
-            <OvenButton as="button" type="button" width="264px" mtop="24px" onClick={handleSubmit}>
+            <OvenButton as="button" type="button" width="264px" $mtop="24px" onClick={handleSubmit}>
               쿠키 남기기
             </OvenButton>
           </Box>

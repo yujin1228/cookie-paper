@@ -31,8 +31,11 @@ export default function PassCodeTimer({ nextStep, passcode }) {
   //인증번호 확인 버튼 클릭
   const checkPassCode = () => {
     //인증번호 일치하면 다음절차 활성화
+    setIsCodePass(false);
     if (code === passcode.current + '') {
       setIsCodePass(true);
+      setActiveTimer(false);
+      setTime(600);
       nextStep();
     } else {
       //인증실패

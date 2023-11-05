@@ -14,7 +14,7 @@ export default function OvenList() {
   useEffect(() => {
     ovenListAPI()
       .then((listData) => {
-        if (isLoggedin) {
+        if (isLoggedin && userInfo.usOvId !== null) {
           //listData정렬
           const newlistData = listData.filter((item) => item.usId === userInfo.usId).concat(listData.filter((item) => item.usId !== userInfo.usId));
           setOvenList(newlistData);
@@ -30,7 +30,7 @@ export default function OvenList() {
   const listItem = () => {
     return ovenList.map((item, index) => {
       //로그인 상태라면 첫번째요소에 mine=true
-      const mine = isLoggedin && index === 0 ? true : false;
+      const mine = isLoggedin && userInfo.usOvId !== null && index === 0 ? true : false;
       return <OvenItem key={item.ovId} userid={item.usId} name={item.usNickname} oven={item.ovDesign} pri={item.ovPrivateYn} mine={mine} />;
     });
   };

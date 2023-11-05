@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { LoginState } from 'atoms/loginState';
+import { LoginState, userinfo } from 'atoms/loginState';
 import { floatIcon } from 'constant/imgImport';
 import { Container, SubButton, Button } from './FloatingButton.style';
 
 export default function FloatingButton() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
+  const [userInfo, setUserInfo] = useRecoilState(userinfo);
   const [toggle, setToggle] = useState(false);
   const location = useLocation().pathname;
   const navigate = useNavigate();
@@ -31,14 +32,15 @@ export default function FloatingButton() {
   };
 
   const toMyOven = () => {
-    const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
     userInfo.usOvId ? navigate(`/oven/${userInfo.usId}`) : navigate('/ovenselect');
   };
 
   const handleLoggedOut = () => {
     localStorage.removeItem('CPToken');
     localStorage.removeItem('CPUserInfo');
+    setUserInfo({ usId: null, usName: null, usOvId: null });
     setIsLoggedIn(false);
+    navigate('/');
   };
 
   useEffect(() => {

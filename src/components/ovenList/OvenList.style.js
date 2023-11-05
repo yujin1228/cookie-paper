@@ -4,7 +4,7 @@ import title from 'assets/img/oven-list-title.png';
 export const Container = styled.div`
   max-width: 1200px;
   min-width: 830px;
-  height: 673px;
+  height: 80vh;
   background-color: var(--orange-300);
   border-radius: 20px;
   padding: 32px 60px;
@@ -27,7 +27,6 @@ export const Container = styled.div`
   @media screen and (max-width: 480px) {
     max-width: 370px;
     min-width: 330px;
-    height: 620px;
     padding: 28px 30px;
   }
 `;

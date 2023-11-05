@@ -130,13 +130,13 @@ export const Check = styled.p`
   display: flex;
   align-items: center;
   font-size: ${(props) => props.size || '16px'};
-  line-height: ${(props) => props.lineh || '21px'};
+  line-height: ${(props) => props.$lineh || '21px'};
   margin: 0 auto;
   cursor: pointer;
 
   &::after {
     content: '';
-    display: inline-block;
+    display: ${(props) => (props.$ovpri ? 'none' : 'inline-block')};
     width: 20px;
     height: 20px;
     margin-left: 8px;

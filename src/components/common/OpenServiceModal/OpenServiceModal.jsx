@@ -4,13 +4,14 @@ import { Dimmed } from 'components/common/BackgroundImg.style';
 import { OvenButton } from 'components/common/Button.style';
 import { showOpenModal } from 'atoms/msgOpenTimer';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { LoginState } from 'atoms/loginState';
+import { LoginState, userinfo } from 'atoms/loginState';
 import { useNavigate } from 'react-router';
 
 export default function OpenServiceModal() {
   const [check, setCheck] = useState(false);
   const [isOpenModal, setIsOpenModal] = useRecoilState(showOpenModal);
   const isLoggedIn = useRecoilValue(LoginState);
+  const userInfo = useRecoilValue(userinfo);
   const navigate = useNavigate();
 
   const handleCloseModal = () => {
@@ -25,8 +26,11 @@ export default function OpenServiceModal() {
   };
 
   const toMyOven = () => {
-    const userInfo = JSON.parse(localStorage.getItem('CPUserInfo'));
-    isLoggedIn ? navigate(`/oven/${userInfo.usId}`) : navigate('/login');
+    if (isLoggedIn) {
+      userInfo.usOvId !== null ? navigate(`/oven/${userInfo.usId}`) : alert('생성하신 오븐이 없네요. 현재는 메시지가 공개되어 오븐을 생성할 수 없어요🥲');
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
