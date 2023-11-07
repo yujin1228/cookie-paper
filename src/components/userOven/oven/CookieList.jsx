@@ -95,7 +95,7 @@ export default function CookieList({ setReadCookie, ovId }) {
           <PageButton direction="next" onClick={nextPage} />
         </PageContainer>
         <Dimmed $show={showToast}>
-          <ToastText>{isOpenMsg ? `비공개 메시지는 오븐주인만 볼 수 있어요` : `11월 11일부터 메세지를 확인하실 수 있어요 :)`}</ToastText>
+          <ToastText>{isOpenMsg ? `비공개 메시지는 오븐주인만 볼 수 있어요` : `11월 10일부터 메세지를 확인하실 수 있어요 :)`}</ToastText>
         </Dimmed>
       </OvenPen>
     </>
