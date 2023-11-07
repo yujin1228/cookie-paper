@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { LoginState, userinfo } from 'atoms/loginState';
 import Loader from 'components/common/Loader/Loader';
+import { CloseButton } from 'components/common/OpenServiceModal/OpenServiceModal.style';
+import { useNavigate } from 'react-router';
 
 export default function OvenList() {
   const [ovenList, setOvenList] = useState(null);
   const isLoggedin = useRecoilValue(LoginState);
   const userInfo = useRecoilValue(userinfo);
+  const navigate = useNavigate();
 
   useEffect(() => {
     ovenListAPI()
@@ -39,6 +42,7 @@ export default function OvenList() {
     <Container>
       <Title />
       <ScrollBox>{ovenList !== null ? <OvenBox>{listItem()}</OvenBox> : <Loader />}</ScrollBox>
+      <CloseButton onClick={() => navigate('/')} />
     </Container>
   );
 }
