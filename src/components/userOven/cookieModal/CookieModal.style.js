@@ -39,10 +39,15 @@ export const TextBox = styled.div`
   background-color: var(--orange-100);
   padding: 26px 30px;
   position: relative;
-  font-family: var(--message-font);
-  font-size: 18px;
+  font-family: var(--basic-font);
+  font-size: 16px;
   line-height: 32px;
   ${(props) => props.$scroll && 'overflow: auto;'}
+  white-space: pre-wrap;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const TextInput = styled.textarea`
@@ -55,7 +60,7 @@ export const TextInput = styled.textarea`
   resize: none;
   color: var(--black);
   font-size: 16px;
-  font-family: var(--message-font);
+  font-family: var(--basic-font);
 `;
 
 export const TextCount = styled.span`
