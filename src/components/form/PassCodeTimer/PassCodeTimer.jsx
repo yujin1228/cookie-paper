@@ -48,7 +48,13 @@ export default function PassCodeTimer({ nextStep, passcode }) {
       <Label htmlFor="passCode">인증번호</Label>
       <CodeTimer>{timeFormat(time)}</CodeTimer>
       <InputBox>
-        <Input type="text" placeholder="인증번호를 입력해주세요" disabled={!activeTimer} onChange={(e) => setCode(e.target.value)} />
+        <Input
+          type="text"
+          placeholder="인증번호를 입력해주세요"
+          autoComplete="one-time-code"
+          disabled={!activeTimer}
+          onChange={(e) => setCode(e.target.value)}
+        />
         <InputButton type="button" onClick={checkPassCode} $buttonActive={activeTimer} disabled={!activeTimer}>
           인증번호 확인
         </InputButton>

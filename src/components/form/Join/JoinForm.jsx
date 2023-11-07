@@ -124,7 +124,7 @@ export default function JoinForm() {
         <InputBox>
           <Input
             id="usId"
-            autoComplete="usId"
+            autoComplete="off"
             type="text"
             placeholder="영문/숫자 조합 5-20자"
             {...register('userid', {
@@ -149,6 +149,7 @@ export default function JoinForm() {
         <Input
           id="userPw"
           type="password"
+          autoComplete="off"
           placeholder="영문, 숫자, 특수문자 포함 8자-30자"
           {...register('userpw', {
             required: '필수 입력 정보입니다',
@@ -166,6 +167,7 @@ export default function JoinForm() {
         <Input
           id="userName"
           type="text"
+          autoComplete="off"
           placeholder="영문/한글 최대 5글자"
           {...register('username', {
             required: '필수 입력 정보입니다',
@@ -183,6 +185,7 @@ export default function JoinForm() {
           <Input
             id="userEmail"
             type="email"
+            autoComplete="off"
             placeholder="이메일을 입력해주세요"
             {...register('useremail', {
               required: '필수 입력 정보입니다',
