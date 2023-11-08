@@ -120,6 +120,24 @@ export default function JoinForm() {
     <Form onSubmit={handleSubmit(onSubmit)}>
       {loading && <Loader />}
       <FormGroup>
+        <Label htmlFor="userName">닉네임</Label>
+        <NameGuide>실명 사용을 권장드려요 :&#41;</NameGuide>
+        <Input
+          id="userName"
+          type="text"
+          autoComplete="off"
+          placeholder="영문/한글 최대 5글자"
+          {...register('username', {
+            required: '필수 입력 정보입니다',
+            pattern: {
+              value: RegExp.NAME_RegExp,
+              message: invalidText.name,
+            },
+          })}
+        />
+        {errors.username && <FormMessage>{errors.username.message}</FormMessage>}
+      </FormGroup>
+      <FormGroup>
         <Label htmlFor="usId">아이디</Label>
         <InputBox>
           <Input
@@ -160,24 +178,6 @@ export default function JoinForm() {
           })}
         />
         {errors.userpw && <FormMessage>{errors.userpw.message}</FormMessage>}
-      </FormGroup>
-      <FormGroup>
-        <Label htmlFor="userName">닉네임</Label>
-        <NameGuide>실명 사용을 권장드려요 :&#41;</NameGuide>
-        <Input
-          id="userName"
-          type="text"
-          autoComplete="off"
-          placeholder="영문/한글 최대 5글자"
-          {...register('username', {
-            required: '필수 입력 정보입니다',
-            pattern: {
-              value: RegExp.NAME_RegExp,
-              message: invalidText.name,
-            },
-          })}
-        />
-        {errors.username && <FormMessage>{errors.username.message}</FormMessage>}
       </FormGroup>
       <FormGroup>
         <Label htmlFor="userEmail">이메일</Label>
