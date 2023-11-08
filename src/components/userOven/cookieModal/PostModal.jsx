@@ -65,7 +65,7 @@ export default function PostModal({ active, ovid, ovpri }) {
         .then((res) => {
           setLoading(false);
           if (res === 'success') {
-            alert('쿠키메시지를 남겼어요. 메시지는 11/11 자정 오븐주인에게 전달됩니다!');
+            alert('쿠키메시지를 남겼어요. 메시지는 11월10일 오후6시에 오븐주인에게 전달됩니다!');
             active(false);
             setCookieListUpdate(true);
           } else if (res === 'fail') {
