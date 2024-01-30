@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormContainer, FormTitle } from 'components/form/Form.style';
 import JoinForm from 'components/form/Join/JoinForm';
@@ -12,10 +12,13 @@ export default function JoinPage() {
   const isLoggedIn = useRecoilValue(LoginState);
   const isOpenMsg = useRecoilValue(MsgOpen);
   const navigate = useNavigate();
-  if (isLoggedIn === true || isOpenMsg === true) {
-    alert('메시지가 공개되어 가입이 불가능합니다.');
-    navigate('/');
-  }
+
+  useEffect(() => {
+    if (isLoggedIn === true || isOpenMsg === true) {
+      alert('메시지가 공개되어 가입이 불가능합니다.');
+      navigate('/');
+    }
+  }, []);
 
   return (
     <>
